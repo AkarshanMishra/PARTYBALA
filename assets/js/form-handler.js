@@ -226,13 +226,17 @@ function buildWhatsAppUrl(formType, data) {
     number = "918933073307";
   }
 
+  const defaultCity = (typeof PARTYBALA_CONFIG !== 'undefined' && PARTYBALA_CONFIG.DEFAULT_CITY)
+    ? PARTYBALA_CONFIG.DEFAULT_CITY
+    : "Kanpur";
+
   let message = "";
   if (formType === 'book-mehndi') {
     message = `*New Mehndi Booking Request - PartyBala*\n\n` +
       `👤 *Name:* ${data.fullName || 'Client'}\n` +
       `📞 *Phone:* ${data.phone || '-'}\n` +
       `📅 *Date:* ${data.eventDate || '-'} (${data.eventTime || 'Time flexible'})\n` +
-      `📍 *Location:* ${data.cityArea || '-'}, ${data.venueAddress || ''}\n` +
+      `📍 *Location:* ${data.cityArea || defaultCity}, ${data.venueAddress || ''}\n` +
       `🎉 *Occasion:* ${data.occasion || '-'}\n` +
       `✨ *Style:* ${data.stylePreference || '-'}\n` +
       `👥 *Guests:* ${data.guestCount || '-'}\n\n` +
@@ -242,7 +246,7 @@ function buildWhatsAppUrl(formType, data) {
       `👤 *Name:* ${data.fullName || 'Client'}\n` +
       `📞 *Phone:* ${data.phone || '-'}\n` +
       `📅 *Date:* ${data.eventDate || '-'} (${data.eventTime || 'Time flexible'})\n` +
-      `📍 *Location:* ${data.locationType || '-'}, ${data.cityArea || ''}\n` +
+      `📍 *Location:* ${data.locationType || '-'}, ${data.cityArea || defaultCity}\n` +
       `💄 *Service:* ${data.serviceType || '-'}\n` +
       `✨ *Look:* ${data.makeupStyle || '-'}\n` +
       `👥 *People:* ${data.personCount || '1'}\n` +
@@ -255,8 +259,8 @@ function buildWhatsAppUrl(formType, data) {
       `📞 *Phone:* ${data.phone || '-'}\n` +
       `💬 *WhatsApp:* ${data.whatsapp || data.phone || '-'}\n` +
       `📧 *Email:* ${data.email || '-'}\n` +
-      `🏙️ *City:* ${data.city || '-'}\n` +
-      `📍 *Service Areas:* ${data.serviceLocation || '-'}\n` +
+      `🏙️ *City:* ${data.city || defaultCity}\n` +
+      `📍 *Service Areas:* ${data.serviceLocation || 'Kanpur & Nearby'}\n` +
       `⏳ *Experience:* ${data.experience || '-'}\n` +
       `📸 *Portfolio Link:* ${data.portfolioLink || '-'}\n` +
       (data.notes ? `📝 *Additional Note:* ${data.notes}\n\n` : `\n`) +
@@ -266,7 +270,7 @@ function buildWhatsAppUrl(formType, data) {
       `🎨 *Artist Name:* ${data.artistName || 'Artist'}\n` +
       `🏷️ *Brand:* ${data.brandName || '-'}\n` +
       `📞 *Phone:* ${data.phone || '-'}\n` +
-      `🏙️ *City:* ${data.city || '-'}\n` +
+      `🏙️ *City:* ${data.city || defaultCity}\n` +
       `⏳ *Experience:* ${data.experience || '-'}\n` +
       `👥 *Team Size:* ${data.teamSize || '1'}\n` +
       `📸 *Portfolio:* ${data.portfolioLink || 'Attached/Discuss on chat'}\n\n` +

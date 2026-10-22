@@ -26,6 +26,7 @@ const PARTYBALA_CONFIG = {
 
   // 4. BRAND & EMAIL DETAILS
   BRAND_NAME: "PartyBala",
+  DEFAULT_CITY: "Kanpur",
   LOGO_PATH: "assets/images/partybala-logo.jpg",
   TAGLINE: "Your Plans, Our Duty",
   SUPPORT_EMAIL: "info@partybala.com",

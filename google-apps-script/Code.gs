@@ -81,7 +81,7 @@ function doPost(e) {
         ];
         rowData = [
           timestamp, "New Lead", data.fullName || "", data.phone || "", data.email || "",
-          data.eventDate || "", data.eventTime || "", data.cityArea || "", data.venueAddress || "",
+          data.eventDate || "", data.eventTime || "", data.cityArea || "Kanpur", data.venueAddress || "",
           data.occasion || "", data.stylePreference || "", data.coverageLevel || "",
           data.guestCount || "", data.notes || ""
         ];
@@ -97,7 +97,7 @@ function doPost(e) {
         ];
         rowData = [
           timestamp, "New Lead", data.fullName || "", data.phone || "", data.email || "",
-          data.eventDate || "", data.eventTime || "", data.locationType || "", data.cityArea || "",
+          data.eventDate || "", data.eventTime || "", data.locationType || "", data.cityArea || "Kanpur",
           data.venueAddress || "", data.serviceType || "", data.makeupStyle || "",
           data.personCount || "", data.hairDraping || "", data.notes || ""
         ];
@@ -124,8 +124,8 @@ function doPost(e) {
         ];
         rowData = [
           timestamp, "Pending Review", data.fullName || "", data.profession || "",
-          data.phone || "", data.whatsapp || "", data.email || "", data.city || "",
-          data.experience || "", data.serviceLocation || "", data.portfolioLink || "",
+          data.phone || "", data.whatsapp || "", data.email || "", data.city || "Kanpur",
+          data.experience || "", data.serviceLocation || "Kanpur & Nearby", data.portfolioLink || "",
           data.notes || ""
         ];
         break;
