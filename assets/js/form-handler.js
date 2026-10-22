@@ -2,7 +2,84 @@
  * PARTYBALA - UNIVERSAL FORM HANDLER & GOOGLE SHEETS INTEGRATION
  */
 
+// In-browser vault for high-reliability lead backup
+function saveLeadToLocalVault(leadData, isSynced) {
+  try {
+    const raw = localStorage.getItem('partybala_leads_vault');
+    const vault = raw ? JSON.parse(raw) : [];
+    vault.push({
+      id: 'pb_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7),
+      lead: leadData,
+      isSynced: !!isSynced,
+      recordedAt: new Date().toISOString()
+    });
+    localStorage.setItem('partybala_leads_vault', JSON.stringify(vault));
+  } catch (e) {
+    console.warn("PartyBala vault storage notice:", e);
+  }
+}
+
+// Background syncer for any offline/pending leads
+async function syncPendingLeads() {
+  const scriptUrl = (typeof PARTYBALA_CONFIG !== 'undefined' && PARTYBALA_CONFIG.GOOGLE_SCRIPT_URL)
+    ? PARTYBALA_CONFIG.GOOGLE_SCRIPT_URL.trim()
+    : "";
+  if (!scriptUrl) return;
+
+  try {
+    const raw = localStorage.getItem('partybala_leads_vault');
+    if (!raw) return;
+    const vault = JSON.parse(raw);
+    let updated = false;
+
+    for (let item of vault) {
+      if (!item.isSynced && item.lead) {
+        try {
+          await fetch(scriptUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(item.lead)
+          });
+          item.isSynced = true;
+          updated = true;
+        } catch (err) {
+          console.warn("Lead resync retry paused:", err);
+          break;
+        }
+      }
+    }
+    if (updated) {
+      localStorage.setItem('partybala_leads_vault', JSON.stringify(vault));
+      console.log("PartyBala: Pending leads successfully synced to Google Sheet.");
+    }
+  } catch (e) {
+    // Ignore silent sync errors
+  }
+}
+
+// Admin helper: View or download captured leads
+window.partybalaExportLeads = function() {
+  const raw = localStorage.getItem('partybala_leads_vault');
+  if (!raw || raw === '[]') {
+    console.log("No leads stored locally yet.");
+    return [];
+  }
+  const leads = JSON.parse(raw);
+  console.table(leads.map(i => ({
+    Time: i.recordedAt,
+    Type: i.lead.formType,
+    Name: i.lead.fullName || i.lead.artistName || '-',
+    Phone: i.lead.phone || '-',
+    Synced: i.isSynced ? 'YES' : 'PENDING'
+  })));
+  return leads;
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Sync any pending leads if script URL is configured
+  syncPendingLeads();
+
   // Set minimum date for event date pickers to today
   const dateInputs = document.querySelectorAll('input[type="date"]');
   const today = new Date().toISOString().split('T')[0];
@@ -86,46 +163,32 @@ async function handleFormSubmit(e) {
 
   try {
     if (!scriptUrl) {
-      // Demo / Local Test Mode
+      // Local Test / Pre-Deployment Mode
       isDemoMode = true;
-      console.warn("PartyBala: No GOOGLE_SCRIPT_URL specified in assets/js/config.js. Running in Demo Mode.");
-      console.log("Form payload that would be saved to Google Sheet:", data);
-      // Simulate network latency for authentic feel
-      await new Promise(resolve => setTimeout(resolve, 900));
+      console.warn("PartyBala: No GOOGLE_SCRIPT_URL set in assets/js/config.js. Lead safely saved to local vault.");
+      console.log("Form payload ready for Google Sheet:", data);
+      saveLeadToLocalVault(data, false);
+      // Brief simulated latency for authentic user feedback
+      await new Promise(resolve => setTimeout(resolve, 800));
       submissionSuccessful = true;
     } else {
-      // Production: Send to Google Apps Script
-      // Using text/plain avoids CORS preflight OPTIONS request
-      const response = await fetch(scriptUrl, {
+      // Production: Post directly to Google Apps Script Web App
+      // mode: 'no-cors' avoids browser 302 redirect CORS blocks while ensuring Google Apps Script executes doPost(e)
+      await fetch(scriptUrl, {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'text/plain;charset=utf-8'
         },
         body: JSON.stringify(data)
       });
-
-      if (response.ok || response.type === 'opaque') {
-        submissionSuccessful = true;
-      } else {
-        // Try fallback with URL-encoded form data
-        const fallbackParams = new URLSearchParams();
-        for (const [key, val] of Object.entries(data)) {
-          fallbackParams.append(key, val);
-        }
-        await fetch(scriptUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body: fallbackParams.toString()
-        });
-        submissionSuccessful = true;
-      }
+      saveLeadToLocalVault(data, true);
+      submissionSuccessful = true;
     }
   } catch (err) {
-    console.error("Submission network notice:", err);
-    // Google Apps Script redirect can occasionally throw in strict CORS browsers even when POST succeeds
+    console.warn("Network notice during submission (logged to vault):", err);
+    saveLeadToLocalVault(data, false);
+    // Proceed so user is not blocked and can complete WhatsApp confirmation
     submissionSuccessful = true;
   } finally {
     submitBtn.disabled = false;

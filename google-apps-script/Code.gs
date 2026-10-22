@@ -46,7 +46,18 @@ function doPost(e) {
       try {
         data = JSON.parse(e.postData.contents);
       } catch (err) {
-        data = e.parameter || {};
+        try {
+          var raw = e.postData.contents;
+          var pairs = raw.split('&');
+          for (var i = 0; i < pairs.length; i++) {
+            var pair = pairs[i].split('=');
+            if (pair.length === 2) {
+              data[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1].replace(/\+/g, ' '));
+            }
+          }
+        } catch (parseErr) {
+          data = e.parameter || {};
+        }
       }
     } else if (e.parameter) {
       data = e.parameter;
@@ -66,13 +77,13 @@ function doPost(e) {
           "Timestamp", "Status", "Full Name", "Phone / WhatsApp", "Email",
           "Event Date", "Event Time", "City & Area", "Venue Address",
           "Occasion / Event Type", "Mehndi Style Preference", "Coverage Level",
-          "Total Guests for Mehndi", "Estimated Budget", "Special Requests / Notes"
+          "Total Guests for Mehndi", "Special Requests / Notes"
         ];
         rowData = [
           timestamp, "New Lead", data.fullName || "", data.phone || "", data.email || "",
           data.eventDate || "", data.eventTime || "", data.cityArea || "", data.venueAddress || "",
           data.occasion || "", data.stylePreference || "", data.coverageLevel || "",
-          data.guestCount || "", data.budget || "", data.notes || ""
+          data.guestCount || "", data.notes || ""
         ];
         break;
 
@@ -82,13 +93,13 @@ function doPost(e) {
           "Timestamp", "Status", "Full Name", "Phone / WhatsApp", "Email",
           "Event Date", "Event Time", "Service Location", "City & Area", "Venue Address",
           "Makeup Service Type", "Makeup Look Preference", "Number of People",
-          "Include Hair & Saree/Lehenga Draping?", "Estimated Budget", "Special Requests / Notes"
+          "Include Hair & Saree/Lehenga Draping?", "Special Requests / Notes"
         ];
         rowData = [
           timestamp, "New Lead", data.fullName || "", data.phone || "", data.email || "",
           data.eventDate || "", data.eventTime || "", data.locationType || "", data.cityArea || "",
           data.venueAddress || "", data.serviceType || "", data.makeupStyle || "",
-          data.personCount || "", data.hairDraping || "", data.budget || "", data.notes || ""
+          data.personCount || "", data.hairDraping || "", data.notes || ""
         ];
         break;
 
@@ -241,12 +252,18 @@ function sendAutomatedEmails(formType, data, timestamp) {
   } else if (formType === "book-makeup") {
     serviceTitle = "Bridal / Party Makeup Artist Booking";
     subject = "Thank You for Your Makeup Artist Booking Request - PartyBala";
+  } else if (formType === "partner-unified") {
+    serviceTitle = "Artist Partner Application (" + (data.profession || "Mehndi / Makeup Artist") + ")";
+    subject = "Thank You for Applying to Partner with PartyBala - Artist Network";
   } else if (formType === "partner-mehndi") {
     serviceTitle = "Mehndi Artist Partner Application";
     subject = "Thank You for Applying to Partner with PartyBala - Mehndi Network";
   } else if (formType === "partner-makeup") {
     serviceTitle = "Makeup Artist Partner Application";
     subject = "Thank You for Applying to Partner with PartyBala - MUA Network";
+  } else if (formType === "customer-review") {
+    serviceTitle = "Customer Review & Testimonial";
+    subject = "Thank You for Reviewing PartyBala";
   }
 
   // 1. SEND THANK YOU EMAIL TO CLIENT / PARTNER (IF EMAIL PROVIDED)
