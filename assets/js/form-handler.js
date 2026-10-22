@@ -289,23 +289,22 @@ function buildWhatsAppUrl(formType, data) {
     message = `*New Mehndi Booking Request - PartyBala*\n\n` +
       `👤 *Name:* ${data.fullName || 'Client'}\n` +
       `📞 *Phone:* ${data.phone || '-'}\n` +
-      `📅 *Date:* ${data.eventDate || '-'} (${data.eventTime || 'Time flexible'})\n` +
-      `📍 *Location:* ${data.cityArea || defaultCity}, ${data.venueAddress || ''}\n` +
-      `🎉 *Occasion:* ${data.occasion || '-'}\n` +
-      `✨ *Style:* ${data.stylePreference || '-'}\n` +
-      `👥 *Guests:* ${data.guestCount || '-'}\n\n` +
-      `_I have submitted the booking form on PartyBala. Please confirm artist availability._`;
+      (data.email ? `📧 *Email:* ${data.email}\n` : '') +
+      `📅 *Date:* ${data.eventDate || '-'}\n` +
+      `🌿 *Requirement:* ${data.occasion || 'Bridal Mehndi'}\n` +
+      `📍 *Location:* ${data.cityArea || defaultCity}\n` +
+      (data.notes ? `📝 *Notes:* ${data.notes}\n\n` : `\n`) +
+      `_I have submitted my booking request on PartyBala. Please confirm artist availability._`;
   } else if (formType === 'book-makeup') {
     message = `*New Makeup Artist Booking Request - PartyBala*\n\n` +
       `👤 *Name:* ${data.fullName || 'Client'}\n` +
       `📞 *Phone:* ${data.phone || '-'}\n` +
-      `📅 *Date:* ${data.eventDate || '-'} (${data.eventTime || 'Time flexible'})\n` +
-      `📍 *Location:* ${data.locationType || '-'}, ${data.cityArea || defaultCity}\n` +
-      `💄 *Service:* ${data.serviceType || '-'}\n` +
-      `✨ *Look:* ${data.makeupStyle || '-'}\n` +
-      `👥 *People:* ${data.personCount || '1'}\n` +
-      `👗 *Hair & Draping:* ${data.hairDraping || 'Not specified'}\n\n` +
-      `_I have submitted the inquiry form on PartyBala. Please share portfolio & availability._`;
+      (data.email ? `📧 *Email:* ${data.email}\n` : '') +
+      `📅 *Date:* ${data.eventDate || '-'}\n` +
+      `💄 *Requirement:* ${data.serviceType || 'Bridal HD Makeup'}\n` +
+      `📍 *Location:* ${data.cityArea || defaultCity}\n` +
+      (data.notes ? `📝 *Notes:* ${data.notes}\n\n` : `\n`) +
+      `_I have submitted my booking request on PartyBala. Please share portfolios & availability._`;
   } else if (formType === 'partner-unified') {
     message = `*New Artist Partner Registration - PartyBala*\n\n` +
       `👤 *Artist Name:* ${data.fullName || 'Artist'}\n` +

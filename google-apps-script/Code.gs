@@ -75,15 +75,11 @@ function doPost(e) {
         sheetName = "Mehndi_Bookings";
         headers = [
           "Timestamp", "Status", "Full Name", "Phone / WhatsApp", "Email",
-          "Event Date", "Event Time", "City & Area", "Venue Address",
-          "Occasion / Event Type", "Mehndi Style Preference", "Coverage Level",
-          "Total Guests for Mehndi", "Special Requests / Notes"
+          "Event Date", "Basic Requirement / Occasion", "City / Locality", "Additional Notes"
         ];
         rowData = [
-          timestamp, "New Lead", data.fullName || "", data.phone || "", data.email || "",
-          data.eventDate || "", data.eventTime || "", data.cityArea || "Kanpur", data.venueAddress || "",
-          data.occasion || "", data.stylePreference || "", data.coverageLevel || "",
-          data.guestCount || "", data.notes || ""
+          timestamp, "New Lead", data.fullName || "", data.phone || "", data.email || "Not Provided",
+          data.eventDate || "", data.occasion || "Bridal Mehndi", data.cityArea || "Kanpur", data.notes || ""
         ];
         break;
 
@@ -91,15 +87,11 @@ function doPost(e) {
         sheetName = "Makeup_Bookings";
         headers = [
           "Timestamp", "Status", "Full Name", "Phone / WhatsApp", "Email",
-          "Event Date", "Event Time", "Service Location", "City & Area", "Venue Address",
-          "Makeup Service Type", "Makeup Look Preference", "Number of People",
-          "Include Hair & Saree/Lehenga Draping?", "Special Requests / Notes"
+          "Event Date", "Basic Requirement / Service", "City / Locality", "Additional Notes"
         ];
         rowData = [
-          timestamp, "New Lead", data.fullName || "", data.phone || "", data.email || "",
-          data.eventDate || "", data.eventTime || "", data.locationType || "", data.cityArea || "Kanpur",
-          data.venueAddress || "", data.serviceType || "", data.makeupStyle || "",
-          data.personCount || "", data.hairDraping || "", data.notes || ""
+          timestamp, "New Lead", data.fullName || "", data.phone || "", data.email || "Not Provided",
+          data.eventDate || "", data.serviceType || "Bridal HD Makeup", data.cityArea || "Kanpur", data.notes || ""
         ];
         break;
 
