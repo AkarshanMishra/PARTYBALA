@@ -14,7 +14,7 @@ const PARTYBALA_CONFIG = {
 
   // 2. PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE AFTER DEPLOYMENT:
   // Example: "https://script.google.com/macros/s/AKfycbx.../exec"
-  GOOGLE_SCRIPT_URL: "", 
+  GOOGLE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbyY0xCP0cqbQWbQfhuAMHjwa9UA6qpkGWlfimN3pOkXjUGeHB0xBz0r0ew4zkIQKz0u/exec", 
 
   // 3. WHATSAPP HELPLINE NUMBERS (Country code 91 + 10 digits, no spaces)
   WHATSAPP_CUSTOMER: "918933023302", // 8933023302 for Customers (Bookings)
