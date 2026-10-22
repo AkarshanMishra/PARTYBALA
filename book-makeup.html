@@ -88,26 +88,30 @@
 <body class="bg-luxury-light min-h-screen text-gray-800 antialiased selection:bg-rose-200 selection:text-rose-900">
 
   <!-- TOP ANNOUNCEMENT BANNER -->
-  <div class="bg-gradient-to-r from-rose-950 via-rose-900 to-rose-950 text-rose-100 text-[10px] sm:text-xs py-1.5 sm:py-2 px-2 sm:px-4 text-center font-medium border-b border-rose-800/40 tracking-wide">
-    Wedding Season Bookings Open: Free Consultation &amp; Verified Artist Matching &bull; Customer: +91 89330 23302 &bull; Partner: +91 89330 73307
+  <div class="bg-gradient-to-r from-rose-950 via-rose-900 to-rose-950 text-rose-100 text-[10px] sm:text-xs py-1.5 px-3 text-center font-medium border-b border-rose-800/40 tracking-wide">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-4 overflow-hidden text-ellipsis whitespace-nowrap">
+      <span>✨ Wedding Season Bookings Open &bull; Free Artist Consultation</span>
+      <span class="hidden md:inline text-rose-300/60">|</span>
+      <span class="hidden md:inline">📞 Kanpur Helpline: +91 89330 23302</span>
+    </div>
   </div>
 
   <!-- UNIFIED NAVIGATION HEADER -->
   <header class="sticky top-0 z-50 bg-[#fbf7f0]/95 backdrop-blur-md border-b border-[#eddcd2]/80 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
       
       <!-- Official PartyBala Logo -->
-      <a href="index.html" class="flex items-center gap-3 group shrink-0">
+      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
         <img src="assets/images/partybala-logo.jpg" 
              alt="PartyBala Logo" 
-             class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl object-cover shadow-md group-hover:scale-105 transition-transform duration-300">
+             class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl object-cover shadow-sm group-hover:scale-105 transition-transform duration-300">
         <div>
-          <span class="text-xl sm:text-2xl font-serif font-extrabold text-gray-900 tracking-tight">Party<span class="text-[#d91b5c]">Bala</span></span>
-          <span class="block text-[9px] sm:text-[10px] tracking-widest uppercase font-semibold text-amber-700">Your Plans, Our Duty</span>
+          <span class="text-lg sm:text-2xl font-serif font-extrabold text-gray-900 tracking-tight leading-none block">Party<span class="text-[#d91b5c]">Bala</span></span>
+          <span class="block text-[8px] sm:text-[10px] tracking-widest uppercase font-semibold text-amber-700 mt-0.5">Your Plans, Our Duty</span>
         </div>
       </a>
 
-      <!-- 4 Core Navigation Headings -->
+      <!-- 4 Core Navigation Headings (Desktop) -->
       <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-bold text-gray-700">
         <a href="index.html" class="hover:text-[#d91b5c] transition">Home</a>
         <a href="book-mehndi.html" class="hover:text-[#d91b5c] transition">Book Mehndi</a>
@@ -115,27 +119,100 @@
         <a href="partner.html" class="hover:text-[#d91b5c] transition">Partner Registration</a>
       </nav>
 
-      <!-- 5th Item: CONNECT -->
+      <!-- Right Actions: CONNECT + Mobile Hamburger Toggle -->
       <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <!-- 5th Item: CONNECT -->
         <a href="https://wa.me/918933023302?text=Hello%20PartyBala%20Team%2C%20I%20want%20to%20connect%20with%20you" 
            target="_blank" 
-           class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-[#d91b5c] to-[#c2144d] hover:from-[#c2144d] hover:to-[#9f1239] text-white font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg transition pink-glow">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Connect" class="w-4 h-4">
+           class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full bg-gradient-to-r from-[#d91b5c] to-[#c2144d] hover:from-[#c2144d] hover:to-[#9f1239] text-white font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg transition pink-glow">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Connect" class="w-3.5 h-3.5 sm:w-4 sm:h-4">
           <span>Connect</span>
         </a>
+
+        <!-- Luxury Mobile Menu Hamburger Toggle Button -->
+        <button id="mobile-menu-toggle" 
+                type="button" 
+                aria-label="Toggle Navigation Menu" 
+                aria-expanded="false"
+                class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-white border border-[#eddcd2] text-gray-800 shadow-sm active:scale-95 hover:border-[#d91b5c] transition focus:outline-none">
+          <svg id="menu-icon-bars" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="menu-icon-close" class="w-5 h-5 hidden text-[#d91b5c] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
       </div>
 
     </div>
 
-    <!-- Mobile Navigation Bar for smaller screens -->
-    <div class="lg:hidden border-t border-[#eddcd2]/70 bg-[#fbf7f0] px-3 py-2 flex items-center justify-around gap-2 text-[11px] sm:text-xs font-bold text-gray-700 overflow-x-auto whitespace-nowrap no-scrollbar">
-      <a href="index.html" class="hover:text-[#d91b5c] px-2 py-1 transition">Home</a>
-      <span class="text-gray-300">&bull;</span>
-      <a href="book-mehndi.html" class="hover:text-[#d91b5c] px-2 py-1 transition">Book Mehndi</a>
-      <span class="text-gray-300">&bull;</span>
-      <a href="book-makeup.html" class="text-[#d91b5c] font-bold border-b-2 border-[#d91b5c] pb-0.5 px-2 py-1 transition">Book Makeup</a>
-      <span class="text-gray-300">&bull;</span>
-      <a href="partner.html" class="hover:text-[#d91b5c] px-2 py-1 transition">Partner Registration</a>
+    <!-- Luxury Animated Mobile Menu Drawer (Dropdown) -->
+    <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-[#eddcd2] bg-[#fbf7f0]/98 backdrop-blur-xl px-4 py-4 shadow-xl animate-slide-down">
+      <div class="space-y-2">
+        <a href="index.html" class="flex items-center justify-between p-3 rounded-xl transition hover:bg-white text-gray-800 font-semibold">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center text-rose-800">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            </span>
+            <div>
+              <div class="text-sm font-bold">Home</div>
+              <div class="text-[10px] text-gray-500 font-normal">Luxury Bridal &amp; Event Network</div>
+            </div>
+          </div>
+          <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+
+        <a href="book-mehndi.html" class="flex items-center justify-between p-3 rounded-xl transition hover:bg-white text-gray-800 font-semibold">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-800">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </span>
+            <div>
+              <div class="text-sm font-bold">Book Mehndi</div>
+              <div class="text-[10px] text-gray-500 font-normal">Bridal Henna, Sangeet &amp; Guests</div>
+            </div>
+          </div>
+          <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+
+        <a href="book-makeup.html" class="flex items-center justify-between p-3 rounded-xl transition bg-rose-50 border border-rose-200 text-[#d91b5c] font-bold">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-pink-100 flex items-center justify-center text-pink-800">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            </span>
+            <div>
+              <div class="text-sm font-bold text-[#d91b5c]">Book Makeup</div>
+              <div class="text-[10px] text-gray-500 font-normal">Airbrush, HD Bridal &amp; Party Looks</div>
+            </div>
+          </div>
+          <svg class="w-4 h-4 text-[#d91b5c]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+
+        <a href="partner.html" class="flex items-center justify-between p-3 rounded-xl transition hover:bg-white text-gray-800 font-semibold">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-800">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </span>
+            <div>
+              <div class="text-sm font-bold">Partner Registration</div>
+              <div class="text-[10px] text-gray-500 font-normal">Join Verified Artist Network</div>
+            </div>
+          </div>
+          <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Quick Concierge Hotline Bar inside Menu -->
+      <div class="mt-4 pt-3 border-t border-[#eddcd2] flex items-center justify-between text-[11px] text-gray-600">
+        <div>
+          <span class="font-bold text-gray-800">Kanpur Helpline:</span>
+          <a href="https://wa.me/918933023302" target="_blank" class="text-rose-700 font-semibold block">+91 89330 23302</a>
+        </div>
+        <div class="text-right">
+          <span class="font-bold text-gray-800">Partner Desk:</span>
+          <a href="https://wa.me/918933073307" target="_blank" class="text-amber-800 font-semibold block">+91 89330 73307</a>
+        </div>
+      </div>
     </div>
   </header>
 
