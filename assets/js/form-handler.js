@@ -430,6 +430,11 @@ function showSuccessModal(formType, data, isDemoMode) {
 
         ${demoNotice}
 
+        ${data.email ? `
+        <div class="mt-3 p-3 bg-rose-50/70 border border-rose-200/80 rounded-xl text-rose-900 text-xs text-center flex items-center justify-center gap-2">
+          <span>✉️ A luxury confirmation receipt has also been dispatched to <strong>${escapeHtml(data.email)}</strong> from <strong>info@partybala.com</strong>.</span>
+        </div>` : ''}
+
         <!-- Actions -->
         <div class="mt-6 flex flex-col sm:flex-row gap-3">
           <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer"
