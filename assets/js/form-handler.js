@@ -108,7 +108,10 @@
     const scriptUrl = (typeof PARTYBALA_CONFIG !== 'undefined' && PARTYBALA_CONFIG.GOOGLE_SCRIPT_URL)
       ? PARTYBALA_CONFIG.GOOGLE_SCRIPT_URL.trim()
       : "";
-    if (!scriptUrl) return;
+    const enterpriseUrl = (typeof PARTYBALA_CONFIG !== 'undefined' && PARTYBALA_CONFIG.ENTERPRISE_WEBHOOK_URL)
+      ? PARTYBALA_CONFIG.ENTERPRISE_WEBHOOK_URL.trim()
+      : "";
+    if (!scriptUrl && !enterpriseUrl) return;
 
     isSyncing = true;
     try {
@@ -127,18 +130,35 @@
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 7000);
 
-            await fetch(scriptUrl, {
-              method: 'POST',
-              mode: 'no-cors',
-              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-              body: JSON.stringify(item.lead),
-              signal: controller.signal
-            });
+            const syncCalls = [];
+            if (scriptUrl) {
+              syncCalls.push(
+                fetch(scriptUrl, {
+                  method: 'POST',
+                  mode: 'no-cors',
+                  headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                  body: JSON.stringify(item.lead),
+                  signal: controller.signal
+                })
+              );
+            }
+            if (enterpriseUrl) {
+              syncCalls.push(
+                fetch(enterpriseUrl, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(item.lead),
+                  signal: controller.signal
+                })
+              );
+            }
+
+            await Promise.allSettled(syncCalls);
             clearTimeout(timeoutId);
 
             item.isSynced = true;
             updated = true;
-            // Wait 1.2s between submissions to avoid Google Apps Script concurrency limit
+            // Wait 1.2s between submissions to avoid concurrency spikes
             await new Promise(r => setTimeout(r, 1200));
           } catch (err) {
             console.warn("PartyBala sync retry postponed:", err.message);
@@ -349,25 +369,42 @@
     const scriptUrl = (typeof PARTYBALA_CONFIG !== 'undefined' && PARTYBALA_CONFIG.GOOGLE_SCRIPT_URL)
       ? PARTYBALA_CONFIG.GOOGLE_SCRIPT_URL.trim()
       : "";
+    const enterpriseUrl = (typeof PARTYBALA_CONFIG !== 'undefined' && PARTYBALA_CONFIG.ENTERPRISE_WEBHOOK_URL)
+      ? PARTYBALA_CONFIG.ENTERPRISE_WEBHOOK_URL.trim()
+      : "";
 
     let isSynced = false;
 
-    // 6. Network Dispatch with 6-Second AbortController Timeout
+    // 6. Network Dispatch with 6-Second AbortController Timeout (High-Concurrency Safe)
     try {
-      if (scriptUrl && navigator.onLine) {
+      if ((scriptUrl || enterpriseUrl) && navigator.onLine) {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 6000);
 
-        await fetch(scriptUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'text/plain;charset=utf-8'
-          },
-          body: JSON.stringify(data),
-          signal: controller.signal
-        });
+        const dispatches = [];
+        if (scriptUrl) {
+          dispatches.push(
+            fetch(scriptUrl, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+              body: JSON.stringify(data),
+              signal: controller.signal
+            })
+          );
+        }
+        if (enterpriseUrl) {
+          dispatches.push(
+            fetch(enterpriseUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data),
+              signal: controller.signal
+            })
+          );
+        }
 
+        await Promise.allSettled(dispatches);
         clearTimeout(timeoutId);
         isSynced = true;
         markLeadSyncedInVault(refId);

@@ -35,5 +35,9 @@ const PARTYBALA_CONFIG = {
 
   // 5. BEHAVIOR
   ENABLE_WHATSAPP_HANDOFF: true,
-  ALLOW_DEMO_MODE: true
+  ALLOW_DEMO_MODE: true,
+
+  // 6. HIGH-SCALE ENTERPRISE ARCHITECTURE (READY FOR 1 CR+ USERS)
+  // Supports direct dual-broadcast to High-Throughput Serverless Endpoints (AWS Lambda / Cloudflare Worker / Supabase)
+  ENTERPRISE_WEBHOOK_URL: ""
 };

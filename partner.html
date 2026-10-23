@@ -6,6 +6,12 @@
   <title>Partner Registration | PartyBala - Grow Your Beauty Career</title>
   <meta name="description" content="Register as a verified Mehndi or Makeup Artist on PartyBala. Get direct client bookings, build your bridal brand, and grow your beauty career with zero listing fees.">
   
+  <!-- High-Concurrency Performance CDN Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://upload.wikimedia.org">
+  
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/partybala-logo.png">
 
@@ -251,6 +257,8 @@
           <div class="relative w-full max-w-md rounded-3xl overflow-hidden shadow-2xl border-2 border-white/80 bg-[#FAF7F2]">
             <img src="assets/images/home-hero-dual-clean.jpg" 
                  alt="PartyBala Certified Artist Network" 
+                 fetchpriority="high"
+                 decoding="async"
                  class="w-full h-auto object-cover">
           </div>
         </div>
@@ -491,6 +499,8 @@
                   <div class="w-11 h-11 sm:w-14 sm:h-14 rounded-full p-0.5 bg-gradient-to-tr from-amber-400 via-rose-300 to-[#d91b5c] shadow-md group-hover:scale-105 transition-transform duration-300">
                     <img src="assets/images/hd-work-1.jpg" 
                          alt="Makeup Artist" 
+                         loading="lazy"
+                         decoding="async"
                          class="w-full h-full rounded-full object-cover object-top">
                   </div>
                   
@@ -515,6 +525,8 @@
                   <div class="w-11 h-11 sm:w-14 sm:h-14 rounded-full p-0.5 bg-gradient-to-tr from-emerald-500 via-teal-300 to-[#044e3a] shadow-md group-hover:scale-105 transition-transform duration-300">
                     <img src="assets/images/hd-work-4.jpg" 
                          alt="Mehndi Artist" 
+                         loading="lazy"
+                         decoding="async"
                          class="w-full h-full rounded-full object-cover object-center">
                   </div>
                   
@@ -539,9 +551,13 @@
                   <div class="flex items-center -space-x-2.5 sm:-space-x-3 w-11 h-11 sm:w-14 sm:h-14 justify-center group-hover:scale-105 transition-transform duration-300">
                     <img src="assets/images/hd-work-1.jpg" 
                          alt="Makeup" 
+                         loading="lazy"
+                         decoding="async"
                          class="w-7 h-7 sm:w-9 sm:h-9 rounded-full object-cover object-top border-2 border-white ring-2 ring-rose-400 z-10 shadow-sm">
                     <img src="assets/images/hd-work-4.jpg" 
                          alt="Mehndi" 
+                         loading="lazy"
+                         decoding="async"
                          class="w-7 h-7 sm:w-9 sm:h-9 rounded-full object-cover object-center border-2 border-white ring-2 ring-emerald-500 z-0 shadow-sm">
                   </div>
                   

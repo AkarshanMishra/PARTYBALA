@@ -6,6 +6,12 @@
   <title>Professional Mehndi Services | PartyBala - Plan • Book • Celebrate</title>
   <meta name="description" content="Professional Mehndi Services for Your Special Occasions. Beautiful designs, expert artists. Book verified bridal, Arabic, traditional and minimalist mehndi artists with PartyBala.">
   
+  <!-- High-Concurrency Performance CDN Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://upload.wikimedia.org">
+  
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/partybala-logo.png">
 
@@ -249,7 +255,7 @@
           <!-- Occasion 1: Weddings -->
           <a href="#mehndi-styles" class="flex flex-col items-center text-center p-3 rounded-2xl bg-white/90 hover:bg-white border border-[#eddcd2] hover:border-[#d91b5c]/50 shadow-sm hover:shadow-md transition-all group">
             <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-[#d4af37] via-[#fce7b0] to-[#d4af37] shadow-sm group-hover:scale-105 transition-transform">
-              <img src="assets/images/hd-work-4.jpg" alt="Weddings Bridal Henna" class="w-full h-full object-cover rounded-full">
+              <img src="assets/images/hd-work-4.jpg" alt="Weddings Bridal Henna" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-full">
             </div>
             <span class="text-xs sm:text-sm font-bold text-gray-900 mt-2 group-hover:text-[#d91b5c] transition">Weddings</span>
             <span class="text-[10px] text-gray-500 font-medium">Bridal Henna</span>
@@ -258,7 +264,7 @@
           <!-- Occasion 2: Parties -->
           <a href="#mehndi-styles" class="flex flex-col items-center text-center p-3 rounded-2xl bg-white/90 hover:bg-white border border-[#eddcd2] hover:border-[#d91b5c]/50 shadow-sm hover:shadow-md transition-all group">
             <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-[#d4af37] via-[#fce7b0] to-[#d4af37] shadow-sm group-hover:scale-105 transition-transform">
-              <img src="assets/images/hd-work-6.jpg" alt="Parties Mehndi" class="w-full h-full object-cover rounded-full">
+              <img src="assets/images/hd-work-6.jpg" alt="Parties Mehndi" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-full">
             </div>
             <span class="text-xs sm:text-sm font-bold text-gray-900 mt-2 group-hover:text-[#d91b5c] transition">Parties</span>
             <span class="text-[10px] text-gray-500 font-medium">Sangeet &amp; Family</span>
@@ -267,7 +273,7 @@
           <!-- Occasion 3: Engagements -->
           <a href="#mehndi-styles" class="flex flex-col items-center text-center p-3 rounded-2xl bg-white/90 hover:bg-white border border-[#eddcd2] hover:border-[#d91b5c]/50 shadow-sm hover:shadow-md transition-all group">
             <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-[#d4af37] via-[#fce7b0] to-[#d4af37] shadow-sm group-hover:scale-105 transition-transform">
-              <img src="assets/images/hd-mehndi-minimal.jpg" alt="Engagements Henna" class="w-full h-full object-cover rounded-full">
+              <img src="assets/images/hd-mehndi-minimal.jpg" alt="Engagements Henna" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-full">
             </div>
             <span class="text-xs sm:text-sm font-bold text-gray-900 mt-2 group-hover:text-[#d91b5c] transition">Engagements</span>
             <span class="text-[10px] text-gray-500 font-medium">Ring Ceremony</span>
@@ -276,7 +282,7 @@
           <!-- Occasion 4: Home Bookings -->
           <a href="#mehndi-styles" class="flex flex-col items-center text-center p-3 rounded-2xl bg-white/90 hover:bg-white border border-[#eddcd2] hover:border-[#d91b5c]/50 shadow-sm hover:shadow-md transition-all group">
             <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-[#d4af37] via-[#fce7b0] to-[#d4af37] shadow-sm group-hover:scale-105 transition-transform">
-              <img src="assets/images/hd-mehndi-arabic.jpg" alt="Home Bookings Henna" class="w-full h-full object-cover rounded-full">
+              <img src="assets/images/hd-mehndi-arabic.jpg" alt="Home Bookings Henna" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-full">
             </div>
             <span class="text-xs sm:text-sm font-bold text-gray-900 mt-2 group-hover:text-[#d91b5c] transition">Home Bookings</span>
             <span class="text-[10px] text-gray-500 font-medium">Doorstep Service</span>
@@ -321,6 +327,8 @@
           <div class="w-[280px] sm:w-[360px] h-[370px] sm:h-[470px] royal-arch-frame overflow-hidden bg-white border-2 border-white/80">
             <img src="assets/images/hero-mehndi-hand.jpg" 
                  alt="Bridal Henna Hand with Floral Bracelet & Natural Henna Cone" 
+                 fetchpriority="high"
+                 decoding="async"
                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
           </div>
         </div>
@@ -465,6 +473,8 @@
         <div class="aspect-square sm:aspect-[4/5] w-full overflow-hidden bg-[#FAF7F2]">
           <img src="assets/images/hd-work-6.jpg" 
                alt="Full HD Traditional Bridal Mehndi Designs" 
+               loading="lazy"
+               decoding="async"
                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
         </div>
         <div class="bg-[#044e3a] py-3 px-2 text-center">
@@ -479,6 +489,8 @@
         <div class="aspect-square sm:aspect-[4/5] w-full overflow-hidden bg-[#FAF7F2]">
           <img src="assets/images/hd-mehndi-arabic.jpg" 
                alt="Full HD Arabic Floral Mehndi Artistry" 
+               loading="lazy"
+               decoding="async"
                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
         </div>
         <div class="bg-[#044e3a] py-3 px-2 text-center">
@@ -493,6 +505,8 @@
         <div class="aspect-square sm:aspect-[4/5] w-full overflow-hidden bg-[#FAF7F2]">
           <img src="assets/images/hd-work-4.jpg" 
                alt="Full HD Royal Intricate Bridal Mehndi" 
+               loading="lazy"
+               decoding="async"
                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
         </div>
         <div class="bg-[#044e3a] py-3 px-2 text-center">
@@ -507,6 +521,8 @@
         <div class="aspect-square sm:aspect-[4/5] w-full overflow-hidden bg-[#FAF7F2]">
           <img src="assets/images/hd-mehndi-minimal.jpg" 
                alt="Full HD Modern Minimal Henna Designs" 
+               loading="lazy"
+               decoding="async"
                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
         </div>
         <div class="bg-[#044e3a] py-3 px-2 text-center">
@@ -586,6 +602,8 @@
             <div class="aspect-[4/3] sm:aspect-square w-full overflow-hidden">
               <img src="assets/images/hd-work-4.jpg" 
                    alt="PartyBala Full HD Royal Bridal Mehndi Artistry" 
+                   loading="lazy"
+                   decoding="async"
                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
             </div>
             
