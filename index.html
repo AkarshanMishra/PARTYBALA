@@ -573,111 +573,240 @@
     </section>
 
     <!-- ========================================================================= -->
-    <!-- 5. "WHAT OUR CLIENTS SAY" SECTION (KANPUR VERIFIED REVIEWS & TESTIMONIALS) -->
+    <!-- 5. "WHAT OUR CLIENTS SAY" SECTION (LUXURY TESTIMONIALS SLIDESHOW)          -->
     <!-- ========================================================================= -->
     <section class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" id="reviews-section">
       
-      <!-- Section Title & Write a Review CTA -->
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 sm:mb-12">
+      <!-- Section Title & Action Row (Clean, No Location Clutter) -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 sm:mb-8">
         <div class="text-center sm:text-left">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 border border-rose-200/80 text-[#d91b5c] text-[11px] font-bold uppercase tracking-wider mb-2">
-            <span>📍</span>
-            <span>Kanpur Verified Reviews &bull; 4.9/5 Rating</span>
-          </div>
           <h2 class="text-3xl sm:text-4xl font-serif font-extrabold tracking-tight">
-            <span class="text-[#044e3a]">What Our</span> <span class="text-[#d91b5c]">Kanpur Brides Say</span>
+            <span class="text-[#044e3a]">What Our</span> <span class="text-[#d91b5c]">Clients Say</span>
           </h2>
-          <p class="text-xs sm:text-sm text-gray-500 mt-1">Verified reviews from real brides &amp; celebratory clients across Kanpur (Civil Lines, Swaroop Nagar, Kakadeo &amp; beyond)</p>
+          <p class="text-xs sm:text-sm text-gray-500 mt-1">Verified reviews from our brides &amp; celebratory clients</p>
         </div>
 
-        <!-- Write a Review Button -->
-        <div>
+        <!-- Controls: Previous/Next Arrows & Write a Review Button -->
+        <div class="flex items-center gap-3">
+          <!-- Slide Arrows (Always accessible) -->
+          <div class="flex items-center gap-1.5">
+            <button type="button" 
+                    onclick="slideReviewsCarousel(-1)" 
+                    aria-label="Previous Review"
+                    class="w-9 h-9 rounded-full bg-white text-gray-700 shadow-sm hover:shadow-md border border-gray-200 flex items-center justify-center hover:bg-rose-50 hover:text-[#d91b5c] transition transform hover:scale-105 active:scale-95">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button type="button" 
+                    onclick="slideReviewsCarousel(1)" 
+                    aria-label="Next Review"
+                    class="w-9 h-9 rounded-full bg-white text-gray-700 shadow-sm hover:shadow-md border border-gray-200 flex items-center justify-center hover:bg-rose-50 hover:text-[#d91b5c] transition transform hover:scale-105 active:scale-95">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Write a Review Button -->
           <button type="button" 
                   onclick="openReviewModal()" 
-                  class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#d91b5c] hover:bg-[#be123c] text-white text-xs sm:text-sm font-extrabold shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
+                  class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#d91b5c] hover:bg-[#be123c] text-white text-xs sm:text-sm font-extrabold shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">
             <span>Write a Review</span>
             <span class="text-xs">&#10148;</span>
           </button>
         </div>
       </div>
 
-      <!-- Testimonials Grid (100% Photo-Free, Verified Kanpur Locations) -->
-      <div id="reviews-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      <!-- Testimonials Slideshow Carousel (7 Full Luxury Reviews) -->
+      <div class="relative group">
         
-        <!-- Review 1: Sneha Kapoor -->
-        <div class="bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-rose-100/90 hover:shadow-lg transition flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <!-- 5-Star Rating -->
-              <div class="text-amber-500 text-sm tracking-widest">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <!-- Verified Badge -->
-              <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80">
-                <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                Verified Bride
-              </span>
-            </div>
-            <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
-              "Amazing bridal makeup! I booked PartyBala for my wedding reception in Civil Lines, Kanpur. Flawless HD airbrush finish that stayed intact all evening through tears and photos. Highly recommended!"
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-rose-100/60 flex items-center justify-between">
+        <!-- Desktop Floating Left Arrow -->
+        <button type="button" 
+                onclick="slideReviewsCarousel(-1)" 
+                aria-label="Previous Slide" 
+                class="hidden lg:flex absolute -left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 text-gray-800 shadow-xl border border-gray-200/90 items-center justify-center hover:bg-rose-50 hover:text-[#d91b5c] transition transform hover:scale-110 active:scale-95">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <!-- Carousel Track with Native Momentum Touch Scrolling -->
+        <div id="reviews-container" 
+             class="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory py-4 px-1">
+          
+          <!-- Slide 1: Sneha Kapoor -->
+          <div class="review-slide flex-shrink-0 w-[85%] sm:w-[350px] md:w-[370px] bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-rose-100/90 hover:shadow-xl transition-all duration-300 flex flex-col justify-between snap-start">
             <div>
-              <h4 class="font-bold text-sm text-gray-900">Sneha Kapoor</h4>
-              <span class="text-[11px] text-gray-500 font-medium">📍 Civil Lines, Kanpur</span>
+              <div class="flex items-center justify-between mb-3">
+                <div class="text-amber-500 text-sm tracking-widest">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80">
+                  <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Verified Bride
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
+                "Amazing makeup! I looked exactly how I wanted on my wedding day. Flawless HD finish, high-end products, and on-time doorstep service. Highly recommended Party Bala!"
+              </p>
             </div>
-            <span class="text-[11px] font-semibold text-[#d91b5c] bg-rose-50 px-2.5 py-1 rounded-full border border-rose-100">Bridal Makeup</span>
+            <div class="mt-5 pt-3.5 border-t border-rose-100/60 flex items-center justify-between">
+              <div>
+                <h4 class="font-bold text-sm text-gray-900">Sneha Kapoor</h4>
+                <span class="text-[10px] text-gray-400 font-medium">Wedding Reception</span>
+              </div>
+              <span class="text-[11px] font-semibold text-[#d91b5c] bg-rose-50 px-2.5 py-1 rounded-full border border-rose-100">Bridal Makeup</span>
+            </div>
           </div>
+
+          <!-- Slide 2: Ritika Jain -->
+          <div class="review-slide flex-shrink-0 w-[85%] sm:w-[350px] md:w-[370px] bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-rose-100/90 hover:shadow-xl transition-all duration-300 flex flex-col justify-between snap-start">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="text-amber-500 text-sm tracking-widest">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80">
+                  <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Verified Bride
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
+                "The bridal mehndi design was breathtaking and dark stained! The artist was very patient, polite, and so detailed with the floral mandala."
+              </p>
+            </div>
+            <div class="mt-5 pt-3.5 border-t border-rose-100/60 flex items-center justify-between">
+              <div>
+                <h4 class="font-bold text-sm text-gray-900">Ritika Jain</h4>
+                <span class="text-[10px] text-gray-400 font-medium">Bridal Ceremony</span>
+              </div>
+              <span class="text-[11px] font-semibold text-[#044e3a] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">Bridal Mehndi</span>
+            </div>
+          </div>
+
+          <!-- Slide 3: Neha Sharma -->
+          <div class="review-slide flex-shrink-0 w-[85%] sm:w-[350px] md:w-[370px] bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-rose-100/90 hover:shadow-xl transition-all duration-300 flex flex-col justify-between snap-start">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="text-amber-500 text-sm tracking-widest">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80">
+                  <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Verified Client
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
+                "Booked both makeup and mehndi services for my sangeet and reception. Seamless booking, on-time arrival, and truly luxury artistry!"
+              </p>
+            </div>
+            <div class="mt-5 pt-3.5 border-t border-rose-100/60 flex items-center justify-between">
+              <div>
+                <h4 class="font-bold text-sm text-gray-900">Neha Sharma</h4>
+                <span class="text-[10px] text-gray-400 font-medium">Sangeet &amp; Wedding</span>
+              </div>
+              <span class="text-[11px] font-semibold text-[#701a3d] bg-purple-50 px-2.5 py-1 rounded-full border border-purple-100">Makeup &amp; Mehndi</span>
+            </div>
+          </div>
+
+          <!-- Slide 4: Pooja Agarwal -->
+          <div class="review-slide flex-shrink-0 w-[85%] sm:w-[350px] md:w-[370px] bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-rose-100/90 hover:shadow-xl transition-all duration-300 flex flex-col justify-between snap-start">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="text-amber-500 text-sm tracking-widest">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80">
+                  <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Verified Bride
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
+                "Had my engagement makeup done by PartyBala's verified artist. The subtle rose-gold glow and eye makeup were praised by everyone. Zero patchiness and very polite artist!"
+              </p>
+            </div>
+            <div class="mt-5 pt-3.5 border-t border-rose-100/60 flex items-center justify-between">
+              <div>
+                <h4 class="font-bold text-sm text-gray-900">Pooja Agarwal</h4>
+                <span class="text-[10px] text-gray-400 font-medium">Ring Ceremony</span>
+              </div>
+              <span class="text-[11px] font-semibold text-[#d91b5c] bg-rose-50 px-2.5 py-1 rounded-full border border-rose-100">Engagement Look</span>
+            </div>
+          </div>
+
+          <!-- Slide 5: Divya Verma -->
+          <div class="review-slide flex-shrink-0 w-[85%] sm:w-[350px] md:w-[370px] bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-rose-100/90 hover:shadow-xl transition-all duration-300 flex flex-col justify-between snap-start">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="text-amber-500 text-sm tracking-widest">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80">
+                  <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Verified Client
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
+                "Booked bridal henna for myself and guest mehndi for 15 family members. A team of 3 artists arrived right on schedule. Super fast, clean, and gorgeous dark stain results!"
+              </p>
+            </div>
+            <div class="mt-5 pt-3.5 border-t border-rose-100/60 flex items-center justify-between">
+              <div>
+                <h4 class="font-bold text-sm text-gray-900">Divya Verma</h4>
+                <span class="text-[10px] text-gray-400 font-medium">Family Celebration</span>
+              </div>
+              <span class="text-[11px] font-semibold text-[#044e3a] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">Family &amp; Bridal Mehndi</span>
+            </div>
+          </div>
+
+          <!-- Slide 6: Ananya Gupta -->
+          <div class="review-slide flex-shrink-0 w-[85%] sm:w-[350px] md:w-[370px] bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-rose-100/90 hover:shadow-xl transition-all duration-300 flex flex-col justify-between snap-start">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="text-amber-500 text-sm tracking-widest">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80">
+                  <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Verified Client
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
+                "Booked party glam makeup for my sister's cocktail bash. The artist understood my skin tone perfectly and created an effortlessly radiant glam look. Will definitely book again!"
+              </p>
+            </div>
+            <div class="mt-5 pt-3.5 border-t border-rose-100/60 flex items-center justify-between">
+              <div>
+                <h4 class="font-bold text-sm text-gray-900">Ananya Gupta</h4>
+                <span class="text-[10px] text-gray-400 font-medium">Cocktail Party</span>
+              </div>
+              <span class="text-[11px] font-semibold text-[#d91b5c] bg-rose-50 px-2.5 py-1 rounded-full border border-rose-100">Party Glam Makeup</span>
+            </div>
+          </div>
+
+          <!-- Slide 7: Meera Singhania -->
+          <div class="review-slide flex-shrink-0 w-[85%] sm:w-[350px] md:w-[370px] bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-rose-100/90 hover:shadow-xl transition-all duration-300 flex flex-col justify-between snap-start">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="text-amber-500 text-sm tracking-widest">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80">
+                  <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Verified Bride
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
+                "From the first consultation to my wedding day look, PartyBala delivered 10/10 perfection. Pristine sanitized makeup tools, organic henna cones, and pure artistry!"
+              </p>
+            </div>
+            <div class="mt-5 pt-3.5 border-t border-rose-100/60 flex items-center justify-between">
+              <div>
+                <h4 class="font-bold text-sm text-gray-900">Meera Singhania</h4>
+                <span class="text-[10px] text-gray-400 font-medium">Bridal Ceremony</span>
+              </div>
+              <span class="text-[11px] font-semibold text-[#701a3d] bg-purple-50 px-2.5 py-1 rounded-full border border-purple-100">Full Bridal Package</span>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Review 2: Ritika Jain -->
-        <div class="bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-rose-100/90 hover:shadow-lg transition flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <!-- 5-Star Rating -->
-              <div class="text-amber-500 text-sm tracking-widest">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <!-- Verified Badge -->
-              <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80">
-                <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                Verified Bride
-              </span>
-            </div>
-            <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
-              "The bridal mehndi was breathtaking with a deep mahogany stain! The artist came right to our home in Swaroop Nagar, Kanpur on time, and the intricate mandala with portrait work was sheer perfection."
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-rose-100/60 flex items-center justify-between">
-            <div>
-              <h4 class="font-bold text-sm text-gray-900">Ritika Jain</h4>
-              <span class="text-[11px] text-gray-500 font-medium">📍 Swaroop Nagar, Kanpur</span>
-            </div>
-            <span class="text-[11px] font-semibold text-[#044e3a] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">Bridal Mehndi</span>
-          </div>
-        </div>
-
-        <!-- Review 3: Neha Sharma -->
-        <div class="bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-rose-100/90 hover:shadow-lg transition flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <!-- 5-Star Rating -->
-              <div class="text-amber-500 text-sm tracking-widest">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <!-- Verified Badge -->
-              <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80">
-                <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                Verified Client
-              </span>
-            </div>
-            <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
-              "Booked both makeup and mehndi services for my sister's wedding in Kakadeo, Kanpur. Seamless online booking, punctual arrival, and luxury cosmetic kits. Best bridal artistry service in Kanpur!"
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-rose-100/60 flex items-center justify-between">
-            <div>
-              <h4 class="font-bold text-sm text-gray-900">Neha Sharma</h4>
-              <span class="text-[11px] text-gray-500 font-medium">📍 Kakadeo, Kanpur</span>
-            </div>
-            <span class="text-[11px] font-semibold text-[#701a3d] bg-purple-50 px-2.5 py-1 rounded-full border border-purple-100">Makeup &amp; Mehndi</span>
-          </div>
-        </div>
+        <!-- Desktop Floating Right Arrow -->
+        <button type="button" 
+                onclick="slideReviewsCarousel(1)" 
+                aria-label="Next Slide" 
+                class="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 text-gray-800 shadow-xl border border-gray-200/90 items-center justify-center hover:bg-rose-50 hover:text-[#d91b5c] transition transform hover:scale-110 active:scale-95">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
 
       </div>
 
@@ -752,32 +881,19 @@
             </div>
           </div>
 
-          <!-- Field 3: Service Experienced & Kanpur Location -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-            <div>
-              <label class="block text-xs font-bold text-gray-800 mb-1">
-                Service Experienced <span class="text-[#d91b5c]">*</span>
-              </label>
-              <select name="serviceUsed" required class="form-input-luxury text-xs sm:text-sm bg-white cursor-pointer">
-                <option value="" disabled selected>Select service</option>
-                <option value="Bridal Makeup">Bridal Makeup</option>
-                <option value="Bridal Mehndi">Bridal Mehndi</option>
-                <option value="Party Makeup">Party Makeup</option>
-                <option value="Guest Mehndi">Guest Mehndi</option>
-                <option value="Makeup & Mehndi">Makeup &amp; Mehndi</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-gray-800 mb-1">
-                Your Area in Kanpur <span class="text-gray-400 font-normal text-[11px]">(e.g. Civil Lines)</span>
-              </label>
-              <input type="text" 
-                     name="location" 
-                     placeholder="e.g. Swaroop Nagar, Kanpur" 
-                     value="Kanpur" 
-                     class="form-input-luxury text-xs sm:text-sm">
-            </div>
+          <!-- Field 3: Service Experienced -->
+          <div>
+            <label class="block text-xs font-bold text-gray-800 mb-1">
+              Service Experienced <span class="text-[#d91b5c]">*</span>
+            </label>
+            <select name="serviceUsed" required class="form-input-luxury text-xs sm:text-sm bg-white cursor-pointer">
+              <option value="" disabled selected>Select the service</option>
+              <option value="Bridal Makeup">Bridal Makeup</option>
+              <option value="Bridal Mehndi">Bridal Mehndi</option>
+              <option value="Party Makeup">Party Makeup</option>
+              <option value="Guest Mehndi">Guest Mehndi</option>
+              <option value="Makeup & Mehndi">Makeup &amp; Mehndi</option>
+            </select>
           </div>
 
           <!-- Field 4: Star Rating Selector -->
@@ -967,6 +1083,37 @@
       if (label) label.textContent = textMap[stars] || `${stars}.0 Stars`;
     }
 
+    // Smooth navigation for Reviews Slideshow
+    function slideReviewsCarousel(direction) {
+      const track = document.getElementById('reviews-container');
+      if (!track) return;
+      const card = track.querySelector('.review-slide');
+      const step = card ? (card.offsetWidth + 24) : 380;
+      track.scrollBy({ left: step * direction, behavior: 'smooth' });
+    }
+
+    // Auto-scroll Reviews Slideshow smoothly every 6 seconds
+    let reviewsInterval;
+    function startReviewsAutoplay() {
+      reviewsInterval = setInterval(() => {
+        const track = document.getElementById('reviews-container');
+        if (!track) return;
+        if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 30) {
+          track.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          slideReviewsCarousel(1);
+        }
+      }, 5500);
+    }
+    startReviewsAutoplay();
+
+    const reviewsTrackElem = document.getElementById('reviews-container');
+    if (reviewsTrackElem) {
+      reviewsTrackElem.addEventListener('mouseenter', () => clearInterval(reviewsInterval));
+      reviewsTrackElem.addEventListener('mouseleave', () => startReviewsAutoplay());
+      reviewsTrackElem.addEventListener('touchstart', () => clearInterval(reviewsInterval), { passive: true });
+    }
+
     function appendReviewToDOM(data) {
       const container = document.getElementById('reviews-container');
       if (!container) return;
@@ -980,35 +1127,31 @@
         return temp.innerHTML;
       }
 
-      let rawLoc = (data.location && data.location.trim()) ? sanitize(data.location) : 'Kanpur';
-      if (!rawLoc.toLowerCase().includes('kanpur')) {
-        rawLoc = `${rawLoc}, Kanpur`;
-      }
-
       const card = document.createElement('div');
-      card.className = "bg-white rounded-3xl p-6 sm:p-7 shadow-md border-2 border-rose-300/80 hover:shadow-xl transition flex flex-col justify-between animate-fade-in";
+      card.className = "review-slide flex-shrink-0 w-[85%] sm:w-[350px] md:w-[370px] bg-white rounded-3xl p-6 sm:p-7 shadow-md border-2 border-rose-300/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between snap-start animate-fade-in";
       card.innerHTML = `
         <div>
           <div class="flex items-center justify-between mb-3">
             <div class="text-amber-500 text-sm tracking-widest">${stars}</div>
             <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/80">
               <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              Verified Kanpur Client
+              Verified Client
             </span>
           </div>
           <p class="text-xs sm:text-sm text-gray-700 leading-relaxed italic">
             "${sanitize(data.reviewText || '')}"
           </p>
         </div>
-        <div class="mt-4 pt-3 border-t border-rose-100/60 flex items-center justify-between">
+        <div class="mt-5 pt-3.5 border-t border-rose-100/60 flex items-center justify-between">
           <div>
             <h4 class="font-bold text-sm text-gray-900">${sanitize(data.fullName || 'Client')}</h4>
-            <span class="text-[11px] text-gray-500 font-medium">📍 ${rawLoc}</span>
+            <span class="text-[10px] text-gray-400 font-medium">Recent Client</span>
           </div>
           <span class="text-[11px] font-semibold text-[#d91b5c] bg-rose-50 px-2.5 py-1 rounded-full border border-rose-100">${sanitize(data.serviceUsed || 'Bridal Service')}</span>
         </div>
       `;
       container.prepend(card);
+      container.scrollTo({ left: 0, behavior: 'smooth' });
     }
   </script>
 
