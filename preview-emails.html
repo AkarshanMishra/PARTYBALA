@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PartyBala - Luxury Email Templates Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #EFECE6;
+      color: #18181B;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .preview-header {
+      background: #FFFFFF;
+      border-bottom: 1px solid #E2D9CC;
+      padding: 16px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .preview-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .preview-brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      border: 1px solid #EADCC9;
+      background: #FFFFFF;
+      padding: 2px;
+    }
+    .preview-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #18181B;
+    }
+    .preview-title span { color: #D91B5C; }
+    .preview-subtitle {
+      font-size: 11px;
+      color: #71717A;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+    .tab-pills {
+      display: flex;
+      gap: 8px;
+      background: #FAF7F2;
+      padding: 4px;
+      border-radius: 30px;
+      border: 1px solid #EADCC9;
+    }
+    .tab-btn {
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      color: #71717A;
+      transition: all 0.2s ease;
+    }
+    .tab-btn.active {
+      background: #D91B5C;
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(217, 27, 92, 0.25);
+    }
+    .preview-canvas {
+      padding: 30px 16px 60px 16px;
+      display: flex;
+      justify-content: center;
+    }
+    .email-container {
+      width: 100%;
+      max-width: 660px;
+      display: none;
+    }
+    .email-container.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .client-meta {
+      background: #FFFFFF;
+      border: 1px solid #EADCC9;
+      border-radius: 12px 12px 0 0;
+      padding: 12px 18px;
+      font-size: 11px;
+      color: #71717A;
+      border-bottom: 2px dashed #EADCC9;
+      line-height: 1.6;
+    }
+    .client-meta strong { color: #18181B; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Preview Bar -->
+  <header class="preview-header">
+    <div class="preview-brand">
+      <img src="assets/images/partybala-logo.png" alt="PartyBala Logo">
+      <div>
+        <div class="preview-title">Party<span>Bala</span> &bull; Email Suite</div>
+        <div class="preview-subtitle">Modern Luxury Light Theme Live Previews</div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="tab-pills">
+      <button class="tab-btn active" onclick="switchTab('tab-customer')">✨ Customer Booking</button>
+      <button class="tab-btn" onclick="switchTab('tab-partner')">👑 Partner Onboarding</button>
+      <button class="tab-btn" onclick="switchTab('tab-review')">⭐ Customer Review</button>
+    </div>
+  </header>
+
+  <!-- Live Email Preview Containers -->
+  <main class="preview-canvas">
+
+    <!-- 1. CUSTOMER BOOKING CONFIRMATION EMAIL -->
+    <section id="tab-customer" class="email-container active">
+      <div class="client-meta">
+        <strong>To:</strong> priya.sharma@example.com &bull; 
+        <strong>From:</strong> PartyBala Luxury Artistry &lt;info@partybala.com&gt;<br>
+        <strong>Subject:</strong> ✨ Booking Received: PartyBala Luxury Artistry [Ref: PB-2026-88421]
+      </div>
+      
+      <!-- Live Rendered Customer Email -->
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FAF7F2; padding:36px 14px; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; color:#27272A; -webkit-font-smoothing:antialiased;">
+        <tr>
+          <td align="center">
+            
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:620px; background-color:#FFFFFF; border-radius:20px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.06); border:1px solid #EADCC9;">
+              
+              <!-- Top Tricolor Metallic Hairline -->
+              <tr>
+                <td height="4" style="background:linear-gradient(90deg, #D91B5C 0%, #D4AF37 50%, #059669 100%);"></td>
+              </tr>
+
+              <!-- Modern Luxury Light Header -->
+              <tr>
+                <td align="center" style="background-color:#FFFFFF; padding:36px 30px 24px 30px; text-align:center; border-bottom:1px solid #F4EBE1;">
+                  
+                  <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 14px auto;">
+                    <tr>
+                      <td align="center">
+                        <img src="assets/images/partybala-logo.png" 
+                             alt="PartyBala Logo" 
+                             width="68" 
+                             height="68" 
+                             style="display:block; object-fit:contain; border-radius:16px; border:1.5px solid #EADCC9; background-color:#FFFFFF; padding:4px; box-shadow:0 4px 14px rgba(0,0,0,0.04); margin:0 auto;" />
+                      </td>
+                    </tr>
+                  </table>
+
+                  <h1 style="margin:0; font-family:Georgia, 'Playfair Display', serif; font-size:28px; font-weight:800; color:#18181B; letter-spacing:0.5px; line-height:1.1;">
+                    Party<span style="color:#D91B5C;">Bala</span>
+                  </h1>
+                  
+                  <p style="margin:6px 0 0 0; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:#854D0E; font-weight:700;">
+                    Your Plans, Our Duty &bull; Luxury Bridal Concierge
+                  </p>
+
+                  <div style="display:inline-block; margin-top:16px; padding:6px 20px; background-color:#FDFBF7; border:1px solid #D4AF37; border-radius:30px; font-size:12px; color:#854D0E; font-weight:700; letter-spacing:0.8px;">
+                    INQUIRY REFERENCE: #PB-2026-88421
+                  </div>
+
+                </td>
+              </tr>
+
+              <!-- Priority Verified Status Ribbon -->
+              <tr>
+                <td style="background-color:#F0FDF4; border-bottom:1px solid #DCFCE7; padding:12px 24px; text-align:center;">
+                  <span style="font-size:12px; color:#15803D; font-weight:700; letter-spacing:0.3px;">
+                    ✓ Verified Booking Request Received &bull; Assigned to Concierge Desk
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Email Body Content -->
+              <tr>
+                <td style="padding:32px 32px 20px 32px;">
+                  
+                  <h2 style="margin:0 0 12px 0; font-family:Georgia, 'Playfair Display', serif; font-size:22px; color:#18181B; font-weight:700;">
+                    Dear Priya Sharma,
+                  </h2>
+
+                  <p style="margin:0 0 18px 0; font-size:14px; line-height:1.65; color:#52525B;">
+                    Thank you for choosing <strong>PartyBala</strong> for your celebration. Every wedding and milestone event deserves pure perfection. We have received your booking inquiry and our dedicated bridal concierge is actively reviewing your requirements to pair you with the finest verified artists on your date.
+                  </p>
+
+                  <!-- Luxury Inquiry Details Card -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FDFBF7; border-radius:14px; border:1px solid #EADCC9; margin:24px 0; overflow:hidden;">
+                    <tr>
+                      <td style="background:linear-gradient(90deg, #F9F3EA 0%, #FDFBF7 100%); padding:12px 18px; border-bottom:1px solid #EADCC9;">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td align="left">
+                              <span style="font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#854D0E;">
+                                📋 BOOKING SPECIFICATIONS
+                              </span>
+                            </td>
+                            <td align="right">
+                              <span style="font-size:11px; font-weight:700; color:#059669;">
+                                ● Priority Active
+                              </span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:16px 20px;">
+                        <table width="100%" cellpadding="7" cellspacing="0" border="0" style="font-size:13px;">
+                          <tr>
+                            <td width="38%" style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Guest Name:</td>
+                            <td width="62%" style="color:#18181B; font-weight:700; border-bottom:1px solid #EFE6DC;">Priya Sharma</td>
+                          </tr>
+                          <tr>
+                            <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Service Category:</td>
+                            <td style="color:#D91B5C; font-weight:700; border-bottom:1px solid #EFE6DC;">Bridal &amp; Festive Mehndi Artistry</td>
+                          </tr>
+                          <tr>
+                            <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Occasion / Style:</td>
+                            <td style="color:#18181B; font-weight:600; border-bottom:1px solid #EFE6DC;">Royal Marwari Full-Arm Bridal Mehndi</td>
+                          </tr>
+                          <tr>
+                            <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Celebration Date:</td>
+                            <td style="color:#18181B; font-weight:700; border-bottom:1px solid #EFE6DC;">📅 November 18, 2026</td>
+                          </tr>
+                          <tr>
+                            <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Location / City:</td>
+                            <td style="color:#18181B; font-weight:600; border-bottom:1px solid #EFE6DC;">📍 Kanpur (Civil Lines Hub)</td>
+                          </tr>
+                          <tr>
+                            <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Registered Phone:</td>
+                            <td style="color:#18181B; font-weight:700; border-bottom:1px solid #EFE6DC;">+91 98765 43210</td>
+                          </tr>
+                          <tr>
+                            <td style="color:#71717A; font-weight:500;">Concierge Allocation:</td>
+                            <td>
+                              <span style="display:inline-block; background-color:#FEF3C7; color:#92400E; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; border:1px solid #FCD34D;">
+                                ⏳ Senior Artist Matching In Progress
+                              </span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- What Happens Next - 3 Step Roadmap -->
+                  <h3 style="margin:26px 0 14px 0; font-family:Georgia, 'Playfair Display', serif; font-size:18px; color:#18181B; font-weight:700;">
+                    What Happens Next?
+                  </h3>
+
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
+                    <tr>
+                      <td width="36" valign="top" style="padding-right:14px; padding-top:2px;">
+                        <div style="width:28px; height:28px; border-radius:50%; background-color:#FDF4E6; border:1.5px solid #FCD34D; color:#B45309; text-align:center; line-height:26px; font-size:12px; font-weight:800;">
+                          1
+                        </div>
+                      </td>
+                      <td valign="top" style="padding-bottom:16px;">
+                        <div style="font-size:14px; font-weight:700; color:#18181B; margin-bottom:2px;">
+                          Curated Artist Portfolio Dispatch
+                        </div>
+                        <div style="font-size:12px; color:#71717A; line-height:1.55;">
+                          Within <strong>15–30 minutes</strong>, our bridal concierge verifies availability and shares hand-picked high-res artist portfolios and custom package quotes tailored for you.
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="36" valign="top" style="padding-right:14px; padding-top:2px;">
+                        <div style="width:28px; height:28px; border-radius:50%; background-color:#FDF4E6; border:1.5px solid #FCD34D; color:#B45309; text-align:center; line-height:26px; font-size:12px; font-weight:800;">
+                          2
+                        </div>
+                      </td>
+                      <td valign="top" style="padding-bottom:16px;">
+                        <div style="font-size:14px; font-weight:700; color:#18181B; margin-bottom:2px;">
+                          Date Lock &amp; Advance Confirmation
+                        </div>
+                        <div style="font-size:12px; color:#71717A; line-height:1.55;">
+                          Choose your favorite master artist, select your preferred look, and lock in your wedding date with 100% price transparency and zero hidden surprises.
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="36" valign="top" style="padding-right:14px; padding-top:2px;">
+                        <div style="width:28px; height:28px; border-radius:50%; background-color:#FDF4E6; border:1.5px solid #FCD34D; color:#B45309; text-align:center; line-height:26px; font-size:12px; font-weight:800;">
+                          3
+                        </div>
+                      </td>
+                      <td valign="top">
+                        <div style="font-size:14px; font-weight:700; color:#18181B; margin-bottom:2px;">
+                          Doorstep Luxury Experience
+                        </div>
+                        <div style="font-size:12px; color:#71717A; line-height:1.55;">
+                          On your auspicious celebration day, your verified artist arrives punctually with sanitized, premium organic kits right at your venue or doorstep.
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- WhatsApp Fast Track CTA -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:26px 0 10px 0;">
+                    <tr>
+                      <td align="center">
+                        <a href="https://wa.me/918933023302?text=Hello%20PartyBala%20Concierge%2C%20I%20have%20inquiry%20%23PB-2026-88421" 
+                           target="_blank"
+                           style="display:inline-block; background-color:#059669; background:linear-gradient(135deg, #059669 0%, #047857 100%); color:#FFFFFF; text-decoration:none; font-size:14px; font-weight:700; padding:15px 30px; border-radius:12px; box-shadow:0 6px 18px rgba(5,150,105,0.25); letter-spacing:0.3px;">
+                          💬 Fast-Track Booking on WhatsApp (+91 89330 23302)
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="center" style="padding-top:10px;">
+                        <span style="font-size:11px; color:#71717A;">
+                          Prefer instant assistance? Our team is live on WhatsApp 24/7.
+                        </span>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Trust Badges -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:22px 0 0 0; background-color:#FAF8F5; border-radius:10px; border:1px solid #EADCC9; text-align:center;">
+                    <tr>
+                      <td width="33%" style="padding:8px 6px; font-size:11px; color:#52525B;">
+                        <strong style="color:#18181B; display:block; margin-bottom:2px;">👑 Verified Artists</strong>
+                        Top-Rated Certified MUAs
+                      </td>
+                      <td width="33%" style="padding:8px 6px; font-size:11px; color:#52525B;">
+                        <strong style="color:#18181B; display:block; margin-bottom:2px;">★ 4.9/5 Rating</strong>
+                        Loved by 10,000+ Brides
+                      </td>
+                      <td width="33%" style="padding:8px 6px; font-size:11px; color:#52525B;">
+                        <strong style="color:#18181B; display:block; margin-bottom:2px;">🌿 100% Genuine</strong>
+                        Organic Henna &amp; HD Kits
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+
+              <!-- Modern Light Luxury Footer (Matches Website) -->
+              <tr>
+                <td style="background-color:#FAF7F2; border-top:1px solid #EADCC9; padding:26px 25px; text-align:center; color:#71717A; font-size:11px; line-height:1.65;">
+                  
+                  <div style="margin-bottom:12px;">
+                    <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                      🌐 <a href="https://www.partybala.com" target="_blank" style="color:#18181B; text-decoration:none; font-weight:700;">www.partybala.com</a>
+                    </span>
+                    <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                      📷 <a href="https://www.instagram.com/party_bala/" target="_blank" style="color:#D91B5C; text-decoration:none; font-weight:700;">@party_bala</a>
+                    </span>
+                    <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                      📞 Concierge: +91 89330 23302
+                    </span>
+                    <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                      ✉️ <a href="mailto:info@partybala.com" style="color:#D91B5C; text-decoration:none;">info@partybala.com</a>
+                    </span>
+                  </div>
+
+                  <p style="margin:0 0 4px 0; color:#18181B; font-weight:700; font-size:12px;">
+                    PartyBala Luxury Bridal &amp; Beauty Concierge
+                  </p>
+                  <p style="margin:0 0 8px 0; color:#71717A; font-size:11px;">
+                    Kanpur Central Hub &bull; Serving Uttar Pradesh &amp; Pan-India
+                  </p>
+                  <p style="margin:0; color:#A1A1AA; font-size:10px;">
+                    © 2026 PartyBala. All rights reserved. <strong style="color:#D91B5C;">Your Plans, Our Duty.</strong>
+                  </p>
+                </td>
+              </tr>
+
+            </table>
+
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- 2. PARTNER ONBOARDING APPLICATION EMAIL -->
+    <section id="tab-partner" class="email-container">
+      <div class="client-meta">
+        <strong>To:</strong> ananya.mehndi@example.com &bull; 
+        <strong>From:</strong> PartyBala Artist Network &lt;info@partybala.com&gt;<br>
+        <strong>Subject:</strong> 👑 Welcome to PartyBala Elite Artist Network [Ref: PB-2026-ART99]
+      </div>
+      
+      <!-- Live Rendered Partner Email -->
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FAF7F2; padding:36px 14px; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; color:#27272A; -webkit-font-smoothing:antialiased;">
+        <tr>
+          <td align="center">
+            
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:620px; background-color:#FFFFFF; border-radius:20px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.06); border:1px solid #EADCC9;">
+              
+              <!-- Top Tricolor Metallic Hairline -->
+              <tr>
+                <td height="4" style="background:linear-gradient(90deg, #D4AF37 0%, #059669 50%, #D91B5C 100%);"></td>
+              </tr>
+
+              <!-- Modern Luxury Light Header -->
+              <tr>
+                <td align="center" style="background-color:#FFFFFF; padding:36px 30px 24px 30px; text-align:center; border-bottom:1px solid #F4EBE1;">
+                  
+                  <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 14px auto;">
+                    <tr>
+                      <td align="center">
+                        <img src="assets/images/partybala-logo.png" 
+                             alt="PartyBala Logo" 
+                             width="68" 
+                             height="68" 
+                             style="display:block; object-fit:contain; border-radius:16px; border:1.5px solid #EADCC9; background-color:#FFFFFF; padding:4px; box-shadow:0 4px 14px rgba(0,0,0,0.04); margin:0 auto;" />
+                      </td>
+                    </tr>
+                  </table>
+
+                  <h1 style="margin:0; font-family:Georgia, 'Playfair Display', serif; font-size:28px; font-weight:800; color:#18181B; letter-spacing:0.5px; line-height:1.1;">
+                    Party<span style="color:#D91B5C;">Bala</span>
+                  </h1>
+                  
+                  <p style="margin:6px 0 0 0; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:#047857; font-weight:700;">
+                    Elite Artist Guild &bull; Luxury Bridal Network
+                  </p>
+
+                  <div style="display:inline-block; margin-top:16px; padding:6px 20px; background-color:#FDFBF7; border:1px solid #D4AF37; border-radius:30px; font-size:12px; color:#854D0E; font-weight:700; letter-spacing:0.8px;">
+                    PARTNER APPLICATION REF: #PB-2026-ART99
+                  </div>
+
+                </td>
+              </tr>
+
+              <!-- Priority Status Ribbon -->
+              <tr>
+                <td style="background-color:#ECFDF5; border-bottom:1px solid #D1FAE5; padding:12px 24px; text-align:center;">
+                  <span style="font-size:12px; color:#065F46; font-weight:700; letter-spacing:0.3px;">
+                    👑 Artist Partner Registration Received &bull; Queued for 24-Hr Verification
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Email Body Content -->
+              <tr>
+                <td style="padding:32px 32px 20px 32px;">
+                  
+                  <h2 style="margin:0 0 12px 0; font-family:Georgia, 'Playfair Display', serif; font-size:22px; color:#18181B; font-weight:700;">
+                    Welcome, Ananya Mehndi Studio!
+                  </h2>
+
+                  <p style="margin:0 0 18px 0; font-size:14px; line-height:1.65; color:#52525B;">
+                    Thank you for applying to partner with the <strong>PartyBala Elite Artist Circle</strong>. We celebrate extraordinary talent and connect Kanpur and Uttar Pradesh's finest bridal artists with premium, high-budget brides, guaranteed on-time payouts, and dedicated concierge support.
+                  </p>
+
+                  <!-- Luxury Artist Application Summary Card -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FDFBF7; border-radius:14px; border:1px solid #EADCC9; margin:24px 0; overflow:hidden;">
+                    <tr>
+                      <td style="background:linear-gradient(90deg, #F9F3EA 0%, #FDFBF7 100%); padding:12px 18px; border-bottom:1px solid #EADCC9;">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td align="left">
+                              <span style="font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#854D0E;">
+                                📜 REGISTRATION PROFILE
+                              </span>
+                            </td>
+                            <td align="right">
+                              <span style="font-size:11px; font-weight:700; color:#059669;">
+                                ● Verification In Progress
+                              </span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:16px 20px;">
+                        <table width="100%" cellpadding="7" cellspacing="0" border="0" style="font-size:13px;">
+                          <tr>
+                            <td width="38%" style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Artist / Studio Name:</td>
+                            <td width="62%" style="color:#18181B; font-weight:700; border-bottom:1px solid #EFE6DC;">Ananya Mehndi Studio</td>
+                          </tr>
+                          <tr>
+                            <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Artistry / Profession:</td>
+                            <td style="color:#D91B5C; font-weight:700; border-bottom:1px solid #EFE6DC;">Bridal &amp; Festive Mehndi Artist</td>
+                          </tr>
+                          <tr>
+                            <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Base City / Territory:</td>
+                            <td style="color:#18181B; font-weight:700; border-bottom:1px solid #EFE6DC;">📍 Kanpur (Swaroop Nagar Hub)</td>
+                          </tr>
+                          <tr>
+                            <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Contact Phone:</td>
+                            <td style="color:#18181B; font-weight:700; border-bottom:1px solid #EFE6DC;">+91 98765 43210</td>
+                          </tr>
+                          <tr>
+                            <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">WhatsApp Helpline:</td>
+                            <td style="color:#059669; font-weight:700; border-bottom:1px solid #EFE6DC;">+91 98765 43210</td>
+                          </tr>
+                          <tr>
+                            <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Industry Experience:</td>
+                            <td style="color:#18181B; font-weight:600; border-bottom:1px solid #EFE6DC;">7+ Years (500+ Bridal Celebrations)</td>
+                          </tr>
+                          <tr>
+                            <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Portfolio Reference:</td>
+                            <td style="color:#2563EB; font-weight:600; border-bottom:1px solid #EFE6DC; word-break:break-all;">
+                              <a href="https://instagram.com/party_bala" target="_blank" style="color:#2563EB; text-decoration:underline;">instagram.com/party_bala</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="color:#71717A; font-weight:500;">Onboarding Stage:</td>
+                            <td>
+                              <span style="display:inline-block; background-color:#FEF3C7; color:#92400E; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; border:1px solid #FCD34D;">
+                                ⏳ Portfolio Quality Review Underway
+                              </span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- What Happens Next - 3 Step Roadmap -->
+                  <h3 style="margin:26px 0 14px 0; font-family:Georgia, 'Playfair Display', serif; font-size:18px; color:#18181B; font-weight:700;">
+                    Artist Onboarding Milestones
+                  </h3>
+
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
+                    <tr>
+                      <td width="36" valign="top" style="padding-right:14px; padding-top:2px;">
+                        <div style="width:28px; height:28px; border-radius:50%; background-color:#FDF4E6; border:1.5px solid #FCD34D; color:#B45309; text-align:center; line-height:26px; font-size:12px; font-weight:800;">
+                          1
+                        </div>
+                      </td>
+                      <td valign="top" style="padding-bottom:16px;">
+                        <div style="font-size:14px; font-weight:700; color:#18181B; margin-bottom:2px;">
+                          Artistry &amp; Hygiene Standards Review
+                        </div>
+                        <div style="font-size:12px; color:#71717A; line-height:1.55;">
+                          Our curatorial panel evaluates your bridal intricate work, line precision, and kit hygiene standards within <strong>24 business hours</strong>.
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="36" valign="top" style="padding-right:14px; padding-top:2px;">
+                        <div style="width:28px; height:28px; border-radius:50%; background-color:#FDF4E6; border:1.5px solid #FCD34D; color:#B45309; text-align:center; line-height:26px; font-size:12px; font-weight:800;">
+                          2
+                        </div>
+                      </td>
+                      <td valign="top" style="padding-bottom:16px;">
+                        <div style="font-size:14px; font-weight:700; color:#18181B; margin-bottom:2px;">
+                          Rate Card &amp; Territory Alignment
+                        </div>
+                        <div style="font-size:12px; color:#71717A; line-height:1.55;">
+                          Our Partner Manager contacts you via WhatsApp to align your custom pricing tiers, travel radius, and peak-wedding season availability.
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="36" valign="top" style="padding-right:14px; padding-top:2px;">
+                        <div style="width:28px; height:28px; border-radius:50%; background-color:#FDF4E6; border:1.5px solid #FCD34D; color:#B45309; text-align:center; line-height:26px; font-size:12px; font-weight:800;">
+                          3
+                        </div>
+                      </td>
+                      <td valign="top">
+                        <div style="font-size:14px; font-weight:700; color:#18181B; margin-bottom:2px;">
+                          Verified Badge &amp; Direct High-Value Leads
+                        </div>
+                        <div style="font-size:12px; color:#71717A; line-height:1.55;">
+                          Get listed on PartyBala's premium directory and receive qualified bridal booking inquiries directly with upfront secured deposits.
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Direct WhatsApp Connect CTA -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:26px 0 10px 0;">
+                    <tr>
+                      <td align="center">
+                        <a href="https://wa.me/918933073307?text=Hello%20PartyBala%20Artist%20Desk%2C%20I%20have%20submitted%20my%20artist%20partner%20registration%20%23PB-2026-ART99" 
+                           target="_blank"
+                           style="display:inline-block; background-color:#059669; background:linear-gradient(135deg, #059669 0%, #047857 100%); color:#FFFFFF; text-decoration:none; font-size:14px; font-weight:700; padding:15px 30px; border-radius:12px; box-shadow:0 6px 18px rgba(5,150,105,0.25); letter-spacing:0.3px;">
+                          💬 Connect with Partner Desk on WhatsApp (+91 89330 73307)
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td align="center" style="padding-top:10px;">
+                        <span style="font-size:11px; color:#71717A;">
+                          Direct WhatsApp support for artist onboarding &bull; Fast-track verification
+                        </span>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Partner Trust Highlights -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:22px 0 0 0; background-color:#FAF8F5; border-radius:10px; border:1px solid #EADCC9; text-align:center;">
+                    <tr>
+                      <td width="33%" style="padding:8px 6px; font-size:11px; color:#52525B;">
+                        <strong style="color:#18181B; display:block; margin-bottom:2px;">💰 Guaranteed Payouts</strong>
+                        Advance deposits secured
+                      </td>
+                      <td width="33%" style="padding:8px 6px; font-size:11px; color:#52525B;">
+                        <strong style="color:#18181B; display:block; margin-bottom:2px;">👑 High-Value Brides</strong>
+                        No low-budget haggling
+                      </td>
+                      <td width="33%" style="padding:8px 6px; font-size:11px; color:#52525B;">
+                        <strong style="color:#18181B; display:block; margin-bottom:2px;">🛡️ Zero Fee</strong>
+                        No registration cost
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+
+              <!-- Modern Light Luxury Footer (Matches Website) -->
+              <tr>
+                <td style="background-color:#FAF7F2; border-top:1px solid #EADCC9; padding:26px 25px; text-align:center; color:#71717A; font-size:11px; line-height:1.65;">
+                  
+                  <div style="margin-bottom:12px;">
+                    <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                      🌐 <a href="https://www.partybala.com" target="_blank" style="color:#18181B; text-decoration:none; font-weight:700;">www.partybala.com</a>
+                    </span>
+                    <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                      📷 <a href="https://www.instagram.com/party_bala/" target="_blank" style="color:#D91B5C; text-decoration:none; font-weight:700;">@party_bala</a>
+                    </span>
+                    <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                      🤝 Partner Desk: +91 89330 73307
+                    </span>
+                    <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                      ✉️ <a href="mailto:info@partybala.com" style="color:#D91B5C; text-decoration:none;">info@partybala.com</a>
+                    </span>
+                  </div>
+
+                  <p style="margin:0 0 4px 0; color:#18181B; font-weight:700; font-size:12px;">
+                    PartyBala Artist Network &amp; Guild
+                  </p>
+                  <p style="margin:0 0 8px 0; color:#71717A; font-size:11px;">
+                    Kanpur Central Hub &bull; Serving Uttar Pradesh &amp; Pan-India
+                  </p>
+                  <p style="margin:0; color:#A1A1AA; font-size:10px;">
+                    © 2026 PartyBala. Empowering India's Finest Bridal Artists. <strong style="color:#D91B5C;">Your Plans, Our Duty.</strong>
+                  </p>
+                </td>
+              </tr>
+
+            </table>
+
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- 3. CUSTOMER REVIEW EMAIL -->
+    <section id="tab-review" class="email-container">
+      <div class="client-meta">
+        <strong>To:</strong> tanvi.kapoor@example.com &bull; 
+        <strong>From:</strong> PartyBala Luxury Artistry &lt;info@partybala.com&gt;<br>
+        <strong>Subject:</strong> ✨ Heartfelt Thanks for Your Review — PartyBala Luxury Artistry
+      </div>
+      
+      <!-- Live Rendered Review Email -->
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FAF7F2; padding:36px 14px; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; color:#27272A; -webkit-font-smoothing:antialiased;">
+        <tr>
+          <td align="center">
+            
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:580px; background-color:#FFFFFF; border-radius:20px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.06); border:1px solid #EADCC9;">
+              
+              <!-- Top Tricolor Hairline -->
+              <tr>
+                <td height="4" style="background:linear-gradient(90deg, #D91B5C 0%, #D4AF37 50%, #059669 100%);"></td>
+              </tr>
+
+              <!-- Modern Luxury Light Header -->
+              <tr>
+                <td align="center" style="background-color:#FFFFFF; padding:34px 30px 22px 30px; text-align:center; border-bottom:1px solid #F4EBE1;">
+                  
+                  <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 12px auto;">
+                    <tr>
+                      <td align="center">
+                        <img src="assets/images/partybala-logo.png" 
+                             alt="PartyBala Logo" 
+                             width="64" 
+                             height="64" 
+                             style="display:block; object-fit:contain; border-radius:14px; border:1.5px solid #EADCC9; background-color:#FFFFFF; padding:4px; box-shadow:0 4px 12px rgba(0,0,0,0.04); margin:0 auto;" />
+                      </td>
+                    </tr>
+                  </table>
+
+                  <h1 style="margin:0; font-family:Georgia, 'Playfair Display', serif; font-size:26px; font-weight:800; color:#18181B; letter-spacing:0.5px;">
+                    Party<span style="color:#D91B5C;">Bala</span>
+                  </h1>
+                  
+                  <p style="margin:6px 0 0 0; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#854D0E; font-weight:700;">
+                    Your Plans, Our Duty &bull; Luxury Bridal Concierge
+                  </p>
+
+                  <div style="display:inline-block; margin-top:14px; padding:5px 18px; background-color:#FDFBF7; border:1px solid #D4AF37; border-radius:30px; font-size:11px; color:#854D0E; font-weight:700; letter-spacing:0.8px;">
+                    REVIEW REF: #PB-REV-5542
+                  </div>
+
+                </td>
+              </tr>
+
+              <!-- Body Content -->
+              <tr>
+                <td style="padding:32px 32px 24px 32px;">
+                  <h2 style="margin:0 0 12px 0; font-family:Georgia, 'Playfair Display', serif; font-size:22px; color:#18181B; font-weight:700;">
+                    Thank You, Tanvi Kapoor!
+                  </h2>
+                  <p style="margin:0 0 16px 0; font-size:14px; line-height:1.65; color:#52525B;">
+                    We are immensely grateful for taking the time to share your gracious review for <strong>Bridal HD Airbrush Makeup</strong>.
+                  </p>
+                  <p style="margin:0 0 20px 0; font-size:14px; line-height:1.65; color:#52525B;">
+                    Your feedback empowers our artists and helps us uphold the highest standard of bridal artistry, perfection, and joyful celebration.
+                  </p>
+
+                  <!-- Star Rating Showcase Box -->
+                  <div style="background-color:#FDFBF7; border:1px solid #EADCC9; border-radius:14px; padding:20px; margin:22px 0; text-align:center;">
+                    <div style="font-size:24px; color:#D4AF37; letter-spacing:4px; margin-bottom:6px;">
+                      ★★★★★
+                    </div>
+                    <div style="font-size:13px; font-weight:700; color:#18181B;">
+                      5 / 5 Stars Verified Experience
+                    </div>
+                    <p style="font-size:11px; color:#71717A; margin:6px 0 0 0;">
+                      Reference: #PB-REV-5542 &bull; Recorded in PartyBala Quality Registry
+                    </p>
+                  </div>
+
+                  <p style="margin:20px 0 0 0; font-size:13px; color:#71717A; line-height:1.6; text-align:center;">
+                    Need assistance with future celebrations or bespoke bridal packages? Our concierge is always at your service.
+                  </p>
+                </td>
+              </tr>
+
+              <!-- Modern Light Luxury Footer -->
+              <tr>
+                <td style="background-color:#FAF7F2; border-top:1px solid #EADCC9; padding:24px 20px; text-align:center; color:#71717A; font-size:11px; line-height:1.65;">
+                  <div style="margin-bottom:10px;">
+                    <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:2px;">
+                      🌐 <a href="https://www.partybala.com" target="_blank" style="color:#18181B; text-decoration:none; font-weight:700;">www.partybala.com</a>
+                    </span>
+                    <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:2px;">
+                      📷 <a href="https://www.instagram.com/party_bala/" target="_blank" style="color:#D91B5C; text-decoration:none; font-weight:700;">@party_bala</a>
+                    </span>
+                    <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:2px;">
+                      📞 Concierge: +91 89330 23302
+                    </span>
+                    <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:2px;">
+                      ✉️ <a href="mailto:info@partybala.com" style="color:#D91B5C; text-decoration:none;">info@partybala.com</a>
+                    </span>
+                  </div>
+                  <p style="margin:0 0 4px 0; color:#18181B; font-weight:700; font-size:12px;">
+                    PartyBala Luxury Bridal &amp; Beauty Concierge
+                  </p>
+                  <p style="margin:0; color:#A1A1AA; font-size:10px;">
+                    © 2026 PartyBala. All rights reserved. <strong style="color:#D91B5C;">Your Plans, Our Duty.</strong>
+                  </p>
+                </td>
+              </tr>
+
+            </table>
+
+          </td>
+        </tr>
+      </table>
+    </section>
+
+  </main>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.email-container').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      
+      const target = document.getElementById(tabId);
+      if (target) target.classList.add('active');
+      
+      const clickedBtn = event.target;
+      if (clickedBtn) clickedBtn.classList.add('active');
+    }
+  </script>
+</body>
+</html>

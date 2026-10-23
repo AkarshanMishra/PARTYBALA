@@ -27,10 +27,14 @@
 
 var TARGET_SPREADSHEET_ID = "1QwN0r1V8TsVY5rvDsswwQnBB7Tuj9U-NMuhpqx_S9rM";
 var OFFICIAL_EMAIL        = "info@partybala.com";
+var OFFICIAL_WEBSITE      = "www.partybala.com";
+var OFFICIAL_WEBSITE_URL  = "https://www.partybala.com";
 var CUSTOMER_PHONE        = "+91 89330 23302";
 var PARTNER_PHONE         = "+91 89330 73307";
-var LOGO_URL              = "https://akarshanmishra.github.io/PARTYBALA/assets/images/partybala-logo.jpg";
-var LOGO_FALLBACK_URL     = "https://raw.githubusercontent.com/AkarshanMishra/PARTYBALA/main/assets/images/partybala-logo.jpg";
+var INSTAGRAM_HANDLE      = "@party_bala";
+var INSTAGRAM_URL         = "https://www.instagram.com/party_bala/";
+var LOGO_URL              = "https://raw.githubusercontent.com/AkarshanMishra/PARTYBALA/main/assets/images/partybala-logo.png";
+var LOGO_FALLBACK_URL     = "https://akarshanmishra.github.io/PARTYBALA/assets/images/partybala-logo.png";
 var SPREADSHEET_URL       = "https://docs.google.com/spreadsheets/d/" + TARGET_SPREADSHEET_ID + "/edit";
 
 /**
@@ -344,15 +348,16 @@ function sendPartyBalaEmail(toEmail, subject, htmlBody) {
  */
 function buildCustomerBookingEmailHtml(formType, data, refId) {
   var isMehndi = (formType === "book-mehndi");
-  var serviceHeading = isMehndi ? "Bridal / Party Mehndi Artistry" : "Bridal / Party HD Makeup";
+  var serviceHeading = isMehndi ? "Bridal & Festive Mehndi Artistry" : "Bridal & Party HD Makeup";
   var requirementVal = isMehndi ? (data.occasion || "Bridal Mehndi") : (data.serviceType || "Bridal HD Makeup");
   var customerName = data.fullName || "Valued Guest";
   var eventDate = data.eventDate || "To be confirmed";
   var cityVal = data.cityArea || "Kanpur";
   var phoneVal = data.phone || "Not provided";
+  var emailVal = data.email || "Registered via Booking Form";
   var notesVal = data.notes || "None provided";
   var whatsappDigits = CUSTOMER_PHONE.replace(/[^0-9]/g, '');
-  var whatsappMsg = encodeURIComponent("Hello PartyBala Concierge, I submitted booking inquiry #" + refId + " for " + requirementVal + " on " + eventDate + ". Please share artist portfolios and availability.");
+  var whatsappMsg = encodeURIComponent("Hello PartyBala Concierge, I submitted booking inquiry #" + refId + " for " + requirementVal + " on " + eventDate + ". Please confirm verified artist availability.");
 
   return `
 <!DOCTYPE html>
@@ -360,197 +365,204 @@ function buildCustomerBookingEmailHtml(formType, data, refId) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PartyBala Booking Inquiry</title>
+  <title>PartyBala Booking Confirmation - #${refId}</title>
 </head>
 <body style="margin:0; padding:0; background-color:#FAF7F2; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; color:#27272A; -webkit-font-smoothing:antialiased;">
   
-  <!-- Outer Wrapper -->
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FAF7F2; padding:30px 15px;">
+  <!-- Outer Canvas -->
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FAF7F2; padding:35px 15px;">
     <tr>
       <td align="center">
         
-        <!-- Main Container Card (600px Max) -->
-        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px; background-color:#FFFFFF; border-radius:18px; overflow:hidden; box-shadow:0 12px 36px rgba(0,0,0,0.08); border:1px solid #E8DDD2;">
+        <!-- Main Card (600px Max) -->
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px; background-color:#FFFFFF; border-radius:20px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.05); border:1px solid #EADCC9;">
           
-          <!-- Top Royal Gold Ribbon -->
+          <!-- Top Metallic Gold & Rose Accent Hairline -->
           <tr>
-            <td height="5" style="background:linear-gradient(90deg, #B38F48 0%, #D4AF37 50%, #B38F48 100%);"></td>
+            <td height="4" style="background:linear-gradient(90deg, #D4AF37 0%, #D91B5C 50%, #D4AF37 100%);"></td>
           </tr>
 
-          <!-- Header Section (Royal Velvet Burgundy) -->
+          <!-- Modern Luxury Light Header -->
           <tr>
-            <td align="center" style="background:linear-gradient(135deg, #2D0619 0%, #4C0B2B 55%, #1A0510 100%); padding:38px 25px 30px 25px; text-align:center;">
+            <td align="center" style="background-color:#FFFFFF; padding:36px 30px 24px 30px; text-align:center; border-bottom:1px solid #F4EBE1;">
               
-              <!-- PartyBala Logo -->
-              <table cellpadding="0" cellspacing="0" border="0" align="center">
+              <!-- Official PartyBala Transparent Logo -->
+              <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 14px auto;">
                 <tr>
-                  <td align="center" style="padding-bottom:12px;">
+                  <td align="center">
                     <img src="${LOGO_URL}" 
                          alt="PartyBala Logo" 
-                         width="72" 
-                         height="72" 
-                         style="display:block; border-radius:50%; border:2px solid #D4AF37; box-shadow:0 6px 18px rgba(0,0,0,0.35); object-fit:cover; margin:0 auto;" />
+                         width="68" 
+                         height="68" 
+                         style="display:block; object-fit:contain; border-radius:16px; border:1.5px solid #EADCC9; background-color:#FFFFFF; padding:4px; box-shadow:0 4px 14px rgba(0,0,0,0.04); margin:0 auto;" />
                   </td>
                 </tr>
               </table>
 
-              <!-- Brand Title -->
-              <h1 style="margin:0; font-family:'Playfair Display', Georgia, 'Times New Roman', serif; font-size:27px; font-weight:700; color:#FFFFFF; letter-spacing:3px; text-transform:uppercase;">
-                PARTYBALA
+              <!-- Brand Name -->
+              <h1 style="margin:0; font-family:Georgia, 'Playfair Display', serif; font-size:28px; font-weight:800; color:#18181B; letter-spacing:0.5px; line-height:1.1;">
+                Party<span style="color:#D91B5C;">Bala</span>
               </h1>
               
-              <!-- Brand Tagline -->
-              <p style="margin:6px 0 0 0; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:#D4AF37; font-weight:600;">
-                Luxury Bridal Artistry • Your Plans, Our Duty
+              <!-- Tagline -->
+              <p style="margin:6px 0 0 0; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:#854D0E; font-weight:700;">
+                Your Plans, Our Duty • Luxury Bridal Concierge
               </p>
 
-              <!-- Reference Badge -->
-              <div style="display:inline-block; margin-top:18px; padding:6px 16px; background-color:rgba(212, 175, 55, 0.15); border:1px solid #D4AF37; border-radius:30px; font-size:12px; color:#FDF4DC; font-weight:600; letter-spacing:1px;">
-                INQUIRY REF: ${refId}
+              <!-- Reference ID Badge Chip -->
+              <div style="display:inline-block; margin-top:16px; padding:6px 20px; background-color:#FDFBF7; border:1px solid #D4AF37; border-radius:30px; font-size:12px; color:#854D0E; font-weight:700; letter-spacing:0.8px;">
+                INQUIRY REFERENCE: #${refId}
               </div>
 
             </td>
           </tr>
 
-          <!-- Sub-header Alert Banner -->
+          <!-- Priority Verified Status Ribbon -->
           <tr>
-            <td style="background-color:#FDF2F4; border-bottom:1px solid #FCE7F3; padding:12px 25px; text-align:center;">
-              <span style="font-size:13px; color:#9F1239; font-weight:600;">
-                ✨ We Have Safely Received Your Booking Request
+            <td style="background-color:#F0FDF4; border-bottom:1px solid #DCFCE7; padding:12px 24px; text-align:center;">
+              <span style="font-size:12px; color:#15803D; font-weight:700; letter-spacing:0.3px;">
+                ✓ Verified Booking Request Received • Assigned to Concierge Desk
               </span>
             </td>
           </tr>
 
-          <!-- Main Content Body -->
+          <!-- Email Body Content -->
           <tr>
-            <td style="padding:32px 30px 24px 30px;">
+            <td style="padding:32px 32px 20px 32px;">
               
-              <h2 style="margin:0 0 14px 0; font-family:'Playfair Display', Georgia, serif; font-size:22px; color:#18181B; font-weight:700;">
+              <h2 style="margin:0 0 12px 0; font-family:Georgia, 'Playfair Display', serif; font-size:22px; color:#18181B; font-weight:700;">
                 Dear ${customerName},
               </h2>
 
               <p style="margin:0 0 18px 0; font-size:14px; line-height:1.65; color:#52525B;">
-                Thank you for choosing <strong>PartyBala</strong> for your celebration. Every wedding and milestone event deserves pure perfection. Our bridal concierge team has registered your details and is actively matching certified top-tier artists available on your date.
+                Thank you for choosing <strong>PartyBala</strong> for your celebration. Every wedding and milestone event deserves pure perfection. We have received your booking inquiry and our dedicated bridal concierge is actively reviewing your requirements to pair you with the finest verified artists on your date.
               </p>
 
               <!-- Luxury Inquiry Details Card -->
-              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FAF8F5; border-radius:14px; border:1px solid #EADCC9; margin:22px 0; overflow:hidden;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FDFBF7; border-radius:14px; border:1px solid #EADCC9; margin:24px 0; overflow:hidden;">
                 <tr>
-                  <td style="background:linear-gradient(90deg, #F5EDE0 0%, #FAF6F0 100%); padding:12px 18px; border-bottom:1px solid #EADCC9;">
-                    <span style="font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#854D0E;">
-                      📋 BOOKING INQUIRY OVERVIEW
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding:16px 18px;">
-                    <table width="100%" cellpadding="6" cellspacing="0" border="0" style="font-size:13px;">
+                  <td style="background:linear-gradient(90deg, #F9F3EA 0%, #FDFBF7 100%); padding:12px 18px; border-bottom:1px solid #EADCC9;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
-                        <td width="38%" style="color:#71717A; font-weight:600; border-bottom:1px solid #F4EBE1;">Service Category:</td>
-                        <td width="62%" style="color:#18181B; font-weight:700; border-bottom:1px solid #F4EBE1;">${serviceHeading}</td>
-                      </tr>
-                      <tr>
-                        <td style="color:#71717A; font-weight:600; border-bottom:1px solid #F4EBE1;">Requirement / Style:</td>
-                        <td style="color:#9F1239; font-weight:700; border-bottom:1px solid #F4EBE1;">${requirementVal}</td>
-                      </tr>
-                      <tr>
-                        <td style="color:#71717A; font-weight:600; border-bottom:1px solid #F4EBE1;">Event Date:</td>
-                        <td style="color:#18181B; font-weight:700; border-bottom:1px solid #F4EBE1;">📅 ${eventDate}</td>
-                      </tr>
-                      <tr>
-                        <td style="color:#71717A; font-weight:600; border-bottom:1px solid #F4EBE1;">City / Destination:</td>
-                        <td style="color:#18181B; font-weight:700; border-bottom:1px solid #F4EBE1;">📍 ${cityVal}</td>
-                      </tr>
-                      <tr>
-                        <td style="color:#71717A; font-weight:600; border-bottom:1px solid #F4EBE1;">Client Phone / WhatsApp:</td>
-                        <td style="color:#18181B; font-weight:700; border-bottom:1px solid #F4EBE1;">${phoneVal}</td>
-                      </tr>
-                      <tr>
-                        <td style="color:#71717A; font-weight:600; border-bottom:1px solid #F4EBE1;">Special Notes:</td>
-                        <td style="color:#52525B; font-style:italic; border-bottom:1px solid #F4EBE1;">${notesVal}</td>
-                      </tr>
-                      <tr>
-                        <td style="color:#71717A; font-weight:600;">Concierge Status:</td>
-                        <td>
-                          <span style="display:inline-block; background-color:#FEF3C7; color:#92400E; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; border:1px solid #FDE68A;">
-                            ⭐ Under Priority Review
+                        <td align="left">
+                          <span style="font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#854D0E;">
+                            📋 BOOKING SPECIFICATIONS
+                          </span>
+                        </td>
+                        <td align="right">
+                          <span style="font-size:11px; font-weight:700; color:#059669;">
+                            ● Priority Active
                           </span>
                         </td>
                       </tr>
                     </table>
                   </td>
                 </tr>
+                <tr>
+                  <td style="padding:16px 18px;">
+                    <table width="100%" cellpadding="7" cellspacing="0" border="0" style="font-size:13px;">
+                      <tr>
+                        <td width="36%" style="color:#71717A; font-weight:600; border-bottom:1px solid #F2E8DC;">Service Category:</td>
+                        <td width="64%" style="color:#18181B; font-weight:700; border-bottom:1px solid #F2E8DC;">${serviceHeading}</td>
+                      </tr>
+                      <tr>
+                        <td style="color:#71717A; font-weight:600; border-bottom:1px solid #F2E8DC;">Requirement / Style:</td>
+                        <td style="color:#D91B5C; font-weight:700; border-bottom:1px solid #F2E8DC;">${requirementVal}</td>
+                      </tr>
+                      <tr>
+                        <td style="color:#71717A; font-weight:600; border-bottom:1px solid #F2E8DC;">Event Date:</td>
+                        <td style="color:#18181B; font-weight:700; border-bottom:1px solid #F2E8DC;">📅 ${eventDate}</td>
+                      </tr>
+                      <tr>
+                        <td style="color:#71717A; font-weight:600; border-bottom:1px solid #F2E8DC;">City / Area:</td>
+                        <td style="color:#18181B; font-weight:700; border-bottom:1px solid #F2E8DC;">📍 ${cityVal}</td>
+                      </tr>
+                      <tr>
+                        <td style="color:#71717A; font-weight:600; border-bottom:1px solid #F2E8DC;">Contact Number:</td>
+                        <td style="color:#18181B; font-weight:700; border-bottom:1px solid #F2E8DC;">📞 ${phoneVal}</td>
+                      </tr>
+                      <tr>
+                        <td style="color:#71717A; font-weight:600; border-bottom:1px solid #F2E8DC;">Email Receipt:</td>
+                        <td style="color:#18181B; font-weight:600; border-bottom:1px solid #F2E8DC;">📧 ${emailVal}</td>
+                      </tr>
+                      <tr>
+                        <td style="color:#71717A; font-weight:600;">Special Notes:</td>
+                        <td style="color:#52525B; font-style:italic;">"${notesVal}"</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
               </table>
 
-              <!-- Next Steps Timeline -->
-              <h3 style="margin:24px 0 12px 0; font-family:'Playfair Display', Georgia, serif; font-size:17px; color:#18181B;">
+              <!-- Next Steps Roadmap -->
+              <h3 style="margin:26px 0 14px 0; font-family:Georgia, 'Playfair Display', serif; font-size:18px; color:#18181B; font-weight:700;">
                 What Happens Next?
               </h3>
               
-              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:24px;">
                 <tr>
-                  <td width="32" valign="top" style="padding-right:12px; padding-top:2px;">
-                    <div style="width:26px; height:26px; border-radius:50%; background-color:#831843; color:#FFFFFF; text-align:center; line-height:26px; font-size:12px; font-weight:700;">1</div>
+                  <td width="36" valign="top" style="padding-right:12px; padding-top:2px;">
+                    <div style="width:28px; height:28px; border-radius:50%; background-color:#FAF7F2; border:1.5px solid #D4AF37; color:#854D0E; text-align:center; line-height:26px; font-size:12px; font-weight:800;">1</div>
                   </td>
-                  <td valign="top" style="padding-bottom:14px;">
-                    <div style="font-size:13px; font-weight:700; color:#18181B;">Artist Availability &amp; Lookbook Matching</div>
-                    <div style="font-size:12px; color:#71717A; line-height:1.5;">Our lead coordinator is curating high-definition work samples matching your preferred style and celebration date.</div>
+                  <td valign="top" style="padding-bottom:16px;">
+                    <div style="font-size:13px; font-weight:700; color:#18181B;">Artist Availability Matching</div>
+                    <div style="font-size:12px; color:#71717A; line-height:1.5; margin-top:2px;">Our lead coordinator is screening verified artist schedules and matching high-definition work portfolios for your preferred date.</div>
                   </td>
                 </tr>
                 <tr>
-                  <td width="32" valign="top" style="padding-right:12px; padding-top:2px;">
-                    <div style="width:26px; height:26px; border-radius:50%; background-color:#831843; color:#FFFFFF; text-align:center; line-height:26px; font-size:12px; font-weight:700;">2</div>
+                  <td width="36" valign="top" style="padding-right:12px; padding-top:2px;">
+                    <div style="width:28px; height:28px; border-radius:50%; background-color:#FAF7F2; border:1.5px solid #D4AF37; color:#854D0E; text-align:center; line-height:26px; font-size:12px; font-weight:800;">2</div>
                   </td>
-                  <td valign="top" style="padding-bottom:14px;">
-                    <div style="font-size:13px; font-weight:700; color:#18181B;">Direct WhatsApp Consultation</div>
-                    <div style="font-size:12px; color:#71717A; line-height:1.5;">You will receive artist portfolios, pricing packages, and slot confirmations on your registered number (<strong>${phoneVal}</strong>) within a few hours.</div>
+                  <td valign="top" style="padding-bottom:16px;">
+                    <div style="font-size:13px; font-weight:700; color:#18181B;">WhatsApp Lookbook &amp; Quote Sharing</div>
+                    <div style="font-size:12px; color:#71717A; line-height:1.5; margin-top:2px;">You will receive high-resolution artist photos, transparent packages, and availability directly on WhatsApp (<strong>${phoneVal}</strong>).</div>
                   </td>
                 </tr>
                 <tr>
-                  <td width="32" valign="top" style="padding-right:12px; padding-top:2px;">
-                    <div style="width:26px; height:26px; border-radius:50%; background-color:#831843; color:#FFFFFF; text-align:center; line-height:26px; font-size:12px; font-weight:700;">3</div>
+                  <td width="36" valign="top" style="padding-right:12px; padding-top:2px;">
+                    <div style="width:28px; height:28px; border-radius:50%; background-color:#FAF7F2; border:1.5px solid #D4AF37; color:#854D0E; text-align:center; line-height:26px; font-size:12px; font-weight:800;">3</div>
                   </td>
                   <td valign="top">
-                    <div style="font-size:13px; font-weight:700; color:#18181B;">Guaranteed Date Lock &amp; Doorstep Artistry</div>
-                    <div style="font-size:12px; color:#71717A; line-height:1.5;">Lock in your booking with verified artist allocation, guaranteed on-time arrival, and strict hygiene protocols.</div>
+                    <div style="font-size:13px; font-weight:700; color:#18181B;">Guaranteed Date Lock &amp; Doorstep Service</div>
+                    <div style="font-size:12px; color:#71717A; line-height:1.5; margin-top:2px;">Finalize your artist with complete peace of mind, guaranteed on-time doorstep arrival, and 100% genuine products.</div>
                   </td>
                 </tr>
               </table>
 
-              <!-- WhatsApp Call To Action Button -->
+              <!-- Instant WhatsApp Connect Button (Emerald Green Pill) -->
               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:26px 0 10px 0;">
                 <tr>
                   <td align="center">
                     <a href="https://wa.me/${whatsappDigits}?text=${whatsappMsg}" 
                        target="_blank"
-                       style="display:inline-block; background-color:#059669; color:#FFFFFF; text-decoration:none; font-size:14px; font-weight:700; padding:15px 30px; border-radius:12px; box-shadow:0 6px 18px rgba(5,150,105,0.3); letter-spacing:0.3px;">
-                      💬 Chat with Bridal Concierge (${CUSTOMER_PHONE})
+                       style="display:inline-block; background:linear-gradient(135deg, #059669 0%, #047857 100%); color:#FFFFFF; text-decoration:none; font-size:14px; font-weight:700; padding:15px 32px; border-radius:50px; box-shadow:0 6px 20px rgba(5,150,105,0.25); letter-spacing:0.3px;">
+                      💬 Instant WhatsApp Connect with Concierge
                     </a>
                   </td>
                 </tr>
                 <tr>
                   <td align="center" style="padding-top:10px;">
-                    <span style="font-size:11px; color:#71717A;">
-                      Instant assistance available 9:00 AM – 10:00 PM IST
+                    <span style="font-size:12px; color:#71717A;">
+                      Direct Helpline: <a href="tel:${CUSTOMER_PHONE.replace(/[^0-9+]/g, '')}" style="color:#D91B5C; font-weight:700; text-decoration:none;">${CUSTOMER_PHONE}</a> &bull; 9:00 AM – 10:00 PM IST
                     </span>
                   </td>
                 </tr>
               </table>
 
-              <!-- Trust Guarantee Badges -->
-              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:26px; padding-top:20px; border-top:1px dashed #E4E4E7; text-align:center;">
+              <!-- Trust Guarantee Badges Row -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:28px; padding-top:20px; border-top:1px dashed #EADCC9; text-align:center;">
                 <tr>
                   <td width="33%" style="padding:6px; font-size:11px; color:#52525B;">
-                    <strong style="color:#18181B; display:block; margin-bottom:2px;">🌿 100% Safe</strong>
+                    <strong style="color:#18181B; display:block; margin-bottom:2px;">👑 Verified Artists</strong>
+                    Top-Rated Certified MUAs
+                  </td>
+                  <td width="33%" style="padding:6px; font-size:11px; color:#52525B;">
+                    <strong style="color:#18181B; display:block; margin-bottom:2px;">★ 4.9/5 Rating</strong>
+                    Loved by 10,000+ Brides
+                  </td>
+                  <td width="33%" style="padding:6px; font-size:11px; color:#52525B;">
+                    <strong style="color:#18181B; display:block; margin-bottom:2px;">🌿 100% Genuine</strong>
                     Organic Henna &amp; HD Kits
-                  </td>
-                  <td width="33%" style="padding:6px; font-size:11px; color:#52525B;">
-                    <strong style="color:#18181B; display:block; margin-bottom:2px;">👑 Verified</strong>
-                    Top-Rated Artists Only
-                  </td>
-                  <td width="33%" style="padding:6px; font-size:11px; color:#52525B;">
-                    <strong style="color:#18181B; display:block; margin-bottom:2px;">⏰ On-Time</strong>
-                    Doorstep Service Guarantee
                   </td>
                 </tr>
               </table>
@@ -558,21 +570,34 @@ function buildCustomerBookingEmailHtml(formType, data, refId) {
             </td>
           </tr>
 
-          <!-- Footer Section -->
+          <!-- Modern Light Luxury Footer (Matches Website) -->
           <tr>
-            <td style="background-color:#18181B; padding:26px 25px; text-align:center; color:#A1A1AA; font-size:11px; line-height:1.6;">
-              <p style="margin:0 0 6px 0; color:#FFFFFF; font-weight:700; font-size:12px; letter-spacing:1px; text-transform:uppercase;">
-                PartyBala Luxury Bridal Network
+            <td style="background-color:#FAF7F2; border-top:1px solid #EADCC9; padding:26px 25px; text-align:center; color:#71717A; font-size:11px; line-height:1.65;">
+              
+              <!-- Direct Contact Badges in Footer -->
+              <div style="margin-bottom:12px;">
+                <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                  🌐 <a href="${OFFICIAL_WEBSITE_URL}" target="_blank" style="color:#18181B; text-decoration:none; font-weight:700;">${OFFICIAL_WEBSITE}</a>
+                </span>
+                <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                  📷 <a href="${INSTAGRAM_URL}" target="_blank" style="color:#D91B5C; text-decoration:none; font-weight:700;">${INSTAGRAM_HANDLE}</a>
+                </span>
+                <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                  📞 Concierge: ${CUSTOMER_PHONE}
+                </span>
+                <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                  ✉️ <a href="mailto:${OFFICIAL_EMAIL}" style="color:#D91B5C; text-decoration:none;">${OFFICIAL_EMAIL}</a>
+                </span>
+              </div>
+
+              <p style="margin:0 0 4px 0; color:#18181B; font-weight:700; font-size:12px;">
+                PartyBala Luxury Bridal &amp; Beauty Concierge
               </p>
-              <p style="margin:0 0 6px 0;">
-                Official Inquiries: <a href="mailto:${OFFICIAL_EMAIL}" style="color:#D4AF37; text-decoration:none; font-weight:600;">${OFFICIAL_EMAIL}</a> 
-                &nbsp;|&nbsp; Concierge Helpline: <a href="tel:${CUSTOMER_PHONE.replace(/[^0-9+]/g, '')}" style="color:#FFFFFF; text-decoration:none;">${CUSTOMER_PHONE}</a>
+              <p style="margin:0 0 8px 0; color:#71717A; font-size:11px;">
+                Kanpur Central Hub &bull; Serving Uttar Pradesh &amp; Pan-India
               </p>
-              <p style="margin:0 0 8px 0; color:#71717A;">
-                Kanpur, Uttar Pradesh, India • Handcrafted Bridal Experiences
-              </p>
-              <p style="margin:0; color:#52525B; font-size:10px;">
-                © 2026 PartyBala. All rights reserved. Your Plans, Our Duty.
+              <p style="margin:0; color:#A1A1AA; font-size:10px;">
+                © 2026 PartyBala. All rights reserved. <strong style="color:#D91B5C;">Your Plans, Our Duty.</strong>
               </p>
             </td>
           </tr>
@@ -611,119 +636,136 @@ function buildPartnerOnboardingEmailHtml(data, refId) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PartyBala Artist Network Application</title>
+  <title>PartyBala Artist Partner Registration - Ref #${refId}</title>
 </head>
-<body style="margin:0; padding:0; background-color:#09090B; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; color:#E4E4E7; -webkit-font-smoothing:antialiased;">
+<body style="margin:0; padding:0; background-color:#FAF7F2; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; color:#27272A; -webkit-font-smoothing:antialiased;">
   
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#09090B; padding:30px 15px;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FAF7F2; padding:36px 14px;">
     <tr>
       <td align="center">
         
-        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px; background-color:#18181B; border-radius:18px; overflow:hidden; box-shadow:0 14px 40px rgba(0,0,0,0.6); border:1px solid #27272A;">
+        <!-- Main Email Container Card -->
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:620px; background-color:#FFFFFF; border-radius:20px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.06); border:1px solid #EADCC9;">
           
-          <!-- Top Gold Foil Bar -->
+          <!-- Top Tricolor Metallic Hairline -->
           <tr>
-            <td height="5" style="background:linear-gradient(90deg, #92400E 0%, #D4AF37 50%, #92400E 100%);"></td>
+            <td height="4" style="background:linear-gradient(90deg, #D4AF37 0%, #059669 50%, #D91B5C 100%);"></td>
           </tr>
 
-          <!-- Header Section (Dark Obsidian & Gold) -->
+          <!-- Modern Luxury Light Header -->
           <tr>
-            <td align="center" style="background:radial-gradient(circle at center, #27272A 0%, #121214 100%); padding:38px 25px 28px 25px; text-align:center;">
+            <td align="center" style="background-color:#FFFFFF; padding:36px 30px 24px 30px; text-align:center; border-bottom:1px solid #F4EBE1;">
               
-              <!-- Logo -->
-              <table cellpadding="0" cellspacing="0" border="0" align="center">
+              <!-- Official PartyBala Transparent Logo -->
+              <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 14px auto;">
                 <tr>
-                  <td align="center" style="padding-bottom:12px;">
+                  <td align="center">
                     <img src="${LOGO_URL}" 
                          alt="PartyBala Logo" 
-                         width="72" 
-                         height="72" 
-                         style="display:block; border-radius:50%; border:2px solid #D4AF37; box-shadow:0 4px 16px rgba(212,175,55,0.25); object-fit:cover; margin:0 auto;" />
+                         width="68" 
+                         height="68" 
+                         style="display:block; object-fit:contain; border-radius:16px; border:1.5px solid #EADCC9; background-color:#FFFFFF; padding:4px; box-shadow:0 4px 14px rgba(0,0,0,0.04); margin:0 auto;" />
                   </td>
                 </tr>
               </table>
 
-              <h1 style="margin:0; font-family:'Playfair Display', Georgia, serif; font-size:26px; font-weight:700; color:#FFFFFF; letter-spacing:3px; text-transform:uppercase;">
-                PARTYBALA
+              <!-- Brand Name -->
+              <h1 style="margin:0; font-family:Georgia, 'Playfair Display', serif; font-size:28px; font-weight:800; color:#18181B; letter-spacing:0.5px; line-height:1.1;">
+                Party<span style="color:#D91B5C;">Bala</span>
               </h1>
               
-              <p style="margin:6px 0 0 0; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#D4AF37; font-weight:600;">
-                ★ Elite Artist Partnership Desk ★
+              <!-- Tagline -->
+              <p style="margin:6px 0 0 0; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:#047857; font-weight:700;">
+                Elite Artist Guild &bull; Luxury Bridal Network
               </p>
 
-              <div style="display:inline-block; margin-top:16px; padding:5px 16px; background-color:rgba(212, 175, 55, 0.12); border:1px solid #D4AF37; border-radius:30px; font-size:12px; color:#FDF4DC; font-weight:600; letter-spacing:1px;">
-                APPLICATION REF: ${refId}
+              <!-- Application Reference Badge -->
+              <div style="display:inline-block; margin-top:16px; padding:6px 20px; background-color:#FDFBF7; border:1px solid #D4AF37; border-radius:30px; font-size:12px; color:#854D0E; font-weight:700; letter-spacing:0.8px;">
+                PARTNER APPLICATION REF: #${refId}
               </div>
 
             </td>
           </tr>
 
-          <!-- Sub Banner -->
+          <!-- Priority Status Ribbon -->
           <tr>
-            <td style="background-color:#27272A; border-bottom:1px solid #3F3F46; padding:12px 25px; text-align:center;">
-              <span style="font-size:12px; color:#FACC15; font-weight:600; letter-spacing:0.5px;">
-                👑 Artist Registration Received &amp; Queued for Verification
+            <td style="background-color:#ECFDF5; border-bottom:1px solid #D1FAE5; padding:12px 24px; text-align:center;">
+              <span style="font-size:12px; color:#065F46; font-weight:700; letter-spacing:0.3px;">
+                👑 Artist Partner Registration Received &bull; Queued for 24-Hr Verification
               </span>
             </td>
           </tr>
 
-          <!-- Main Body -->
+          <!-- Email Body Content -->
           <tr>
-            <td style="padding:32px 30px 24px 30px;">
+            <td style="padding:32px 32px 20px 32px;">
               
-              <h2 style="margin:0 0 14px 0; font-family:'Playfair Display', Georgia, serif; font-size:22px; color:#FFFFFF; font-weight:700;">
+              <h2 style="margin:0 0 12px 0; font-family:Georgia, 'Playfair Display', serif; font-size:22px; color:#18181B; font-weight:700;">
                 Welcome, ${artistName}!
               </h2>
 
-              <p style="margin:0 0 18px 0; font-size:14px; line-height:1.65; color:#A1A1AA;">
-                Thank you for applying to partner with the <strong>PartyBala Elite Artist Circle</strong>. We celebrate extraordinary talent and connect Kanpur's finest bridal artists with high-budget celebrations, premium brides, and guaranteed payouts.
+              <p style="margin:0 0 18px 0; font-size:14px; line-height:1.65; color:#52525B;">
+                Thank you for applying to partner with the <strong>PartyBala Elite Artist Circle</strong>. We celebrate extraordinary talent and connect Kanpur and Uttar Pradesh's finest bridal artists with premium, high-budget brides, guaranteed on-time payouts, and dedicated concierge support.
               </p>
 
-              <!-- Artist Registration Summary Card -->
-              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#1F1F23; border-radius:14px; border:1px solid #3F3F46; margin:22px 0; overflow:hidden;">
+              <!-- Luxury Artist Application Summary Card -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FDFBF7; border-radius:14px; border:1px solid #EADCC9; margin:24px 0; overflow:hidden;">
                 <tr>
-                  <td style="background:linear-gradient(90deg, #27272A 0%, #1F1F23 100%); padding:12px 18px; border-bottom:1px solid #3F3F46;">
-                    <span style="font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#D4AF37;">
-                      📜 REGISTRATION PROFILE
-                    </span>
+                  <td style="background:linear-gradient(90deg, #F9F3EA 0%, #FDFBF7 100%); padding:12px 18px; border-bottom:1px solid #EADCC9;">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td align="left">
+                          <span style="font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#854D0E;">
+                            📜 REGISTRATION PROFILE
+                          </span>
+                        </td>
+                        <td align="right">
+                          <span style="font-size:11px; font-weight:700; color:#059669;">
+                            ● Verification In Progress
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding:16px 18px;">
-                    <table width="100%" cellpadding="6" cellspacing="0" border="0" style="font-size:13px;">
+                  <td style="padding:16px 20px;">
+                    <table width="100%" cellpadding="7" cellspacing="0" border="0" style="font-size:13px;">
                       <tr>
-                        <td width="40%" style="color:#A1A1AA; border-bottom:1px solid #27272A;">Artist / Brand Name:</td>
-                        <td width="60%" style="color:#FFFFFF; font-weight:700; border-bottom:1px solid #27272A;">${artistName}</td>
+                        <td width="38%" style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Artist / Studio Name:</td>
+                        <td width="62%" style="color:#18181B; font-weight:700; border-bottom:1px solid #EFE6DC;">${artistName}</td>
                       </tr>
                       <tr>
-                        <td style="color:#A1A1AA; border-bottom:1px solid #27272A;">Profession / Art:</td>
-                        <td style="color:#FACC15; font-weight:700; border-bottom:1px solid #27272A;">${profession}</td>
+                        <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Artistry / Profession:</td>
+                        <td style="color:#D91B5C; font-weight:700; border-bottom:1px solid #EFE6DC;">${profession}</td>
                       </tr>
                       <tr>
-                        <td style="color:#A1A1AA; border-bottom:1px solid #27272A;">Primary City:</td>
-                        <td style="color:#FFFFFF; font-weight:700; border-bottom:1px solid #27272A;">📍 ${cityVal}</td>
+                        <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Base City / Territory:</td>
+                        <td style="color:#18181B; font-weight:700; border-bottom:1px solid #EFE6DC;">📍 ${cityVal}</td>
                       </tr>
                       <tr>
-                        <td style="color:#A1A1AA; border-bottom:1px solid #27272A;">Contact Phone:</td>
-                        <td style="color:#FFFFFF; font-weight:700; border-bottom:1px solid #27272A;">${phoneVal}</td>
+                        <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Contact Phone:</td>
+                        <td style="color:#18181B; font-weight:700; border-bottom:1px solid #EFE6DC;">${phoneVal}</td>
                       </tr>
                       <tr>
-                        <td style="color:#A1A1AA; border-bottom:1px solid #27272A;">WhatsApp:</td>
-                        <td style="color:#FFFFFF; font-weight:700; border-bottom:1px solid #27272A;">${whatsappVal}</td>
+                        <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">WhatsApp Helpline:</td>
+                        <td style="color:#059669; font-weight:700; border-bottom:1px solid #EFE6DC;">${whatsappVal}</td>
                       </tr>
                       <tr>
-                        <td style="color:#A1A1AA; border-bottom:1px solid #27272A;">Experience:</td>
-                        <td style="color:#FFFFFF; font-weight:700; border-bottom:1px solid #27272A;">${experienceVal}</td>
+                        <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Industry Experience:</td>
+                        <td style="color:#18181B; font-weight:600; border-bottom:1px solid #EFE6DC;">${experienceVal}</td>
                       </tr>
                       <tr>
-                        <td style="color:#A1A1AA; border-bottom:1px solid #27272A;">Portfolio Link:</td>
-                        <td style="color:#93C5FD; border-bottom:1px solid #27272A; word-break:break-all;">${portfolioVal}</td>
+                        <td style="color:#71717A; font-weight:500; border-bottom:1px solid #EFE6DC;">Portfolio Reference:</td>
+                        <td style="color:#2563EB; font-weight:600; border-bottom:1px solid #EFE6DC; word-break:break-all;">
+                          ${portfolioVal.indexOf('http') === 0 ? `<a href="${portfolioVal}" target="_blank" style="color:#2563EB; text-decoration:underline;">View Portfolio</a>` : portfolioVal}
+                        </td>
                       </tr>
                       <tr>
-                        <td style="color:#A1A1AA;">Verification Status:</td>
+                        <td style="color:#71717A; font-weight:500;">Onboarding Stage:</td>
                         <td>
-                          <span style="display:inline-block; background-color:rgba(212,175,55,0.15); color:#FDE047; font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; border:1px solid #CA8A04;">
-                            ⏳ Portfolio Review in Progress
+                          <span style="display:inline-block; background-color:#FEF3C7; color:#92400E; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; border:1px solid #FCD34D;">
+                            ⏳ Portfolio Quality Review Underway
                           </span>
                         </td>
                       </tr>
@@ -732,50 +774,93 @@ function buildPartnerOnboardingEmailHtml(data, refId) {
                 </tr>
               </table>
 
-              <!-- Onboarding Roadmap -->
-              <h3 style="margin:24px 0 12px 0; font-family:'Playfair Display', Georgia, serif; font-size:17px; color:#FFFFFF;">
+              <!-- What Happens Next - 3 Step Roadmap -->
+              <h3 style="margin:26px 0 14px 0; font-family:Georgia, 'Playfair Display', serif; font-size:18px; color:#18181B; font-weight:700;">
                 Artist Onboarding Milestones
               </h3>
 
               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
                 <tr>
-                  <td width="32" valign="top" style="padding-right:12px; padding-top:2px;">
-                    <div style="width:26px; height:26px; border-radius:50%; background-color:#B45309; color:#FFFFFF; text-align:center; line-height:26px; font-size:12px; font-weight:700;">1</div>
+                  <td width="36" valign="top" style="padding-right:14px; padding-top:2px;">
+                    <div style="width:28px; height:28px; border-radius:50%; background-color:#FDF4E6; border:1.5px solid #FCD34D; color:#B45309; text-align:center; line-height:26px; font-size:12px; font-weight:800;">
+                      1
+                    </div>
                   </td>
-                  <td valign="top" style="padding-bottom:14px;">
-                    <div style="font-size:13px; font-weight:700; color:#FFFFFF;">Portfolio &amp; Artistry Quality Assessment</div>
-                    <div style="font-size:12px; color:#A1A1AA; line-height:1.5;">Our curatorial panel evaluates your bridal intricate work, line precision, and kit hygiene standards within <strong>24 business hours</strong>.</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td width="32" valign="top" style="padding-right:12px; padding-top:2px;">
-                    <div style="width:26px; height:26px; border-radius:50%; background-color:#B45309; color:#FFFFFF; text-align:center; line-height:26px; font-size:12px; font-weight:700;">2</div>
-                  </td>
-                  <td valign="top" style="padding-bottom:14px;">
-                    <div style="font-size:13px; font-weight:700; color:#FFFFFF;">Rate Card &amp; Territory Alignment</div>
-                    <div style="font-size:12px; color:#A1A1AA; line-height:1.5;">Our Partner Manager contacts you via WhatsApp to align your custom pricing tiers, travel radius, and peak-wedding availability.</div>
+                  <td valign="top" style="padding-bottom:16px;">
+                    <div style="font-size:14px; font-weight:700; color:#18181B; margin-bottom:2px;">
+                      Artistry &amp; Hygiene Standards Review
+                    </div>
+                    <div style="font-size:12px; color:#71717A; line-height:1.55;">
+                      Our curatorial panel evaluates your bridal intricate work, line precision, and kit hygiene standards within <strong>24 business hours</strong>.
+                    </div>
                   </td>
                 </tr>
                 <tr>
-                  <td width="32" valign="top" style="padding-right:12px; padding-top:2px;">
-                    <div style="width:26px; height:26px; border-radius:50%; background-color:#B45309; color:#FFFFFF; text-align:center; line-height:26px; font-size:12px; font-weight:700;">3</div>
+                  <td width="36" valign="top" style="padding-right:14px; padding-top:2px;">
+                    <div style="width:28px; height:28px; border-radius:50%; background-color:#FDF4E6; border:1.5px solid #FCD34D; color:#B45309; text-align:center; line-height:26px; font-size:12px; font-weight:800;">
+                      2
+                    </div>
+                  </td>
+                  <td valign="top" style="padding-bottom:16px;">
+                    <div style="font-size:14px; font-weight:700; color:#18181B; margin-bottom:2px;">
+                      Rate Card &amp; Territory Alignment
+                    </div>
+                    <div style="font-size:12px; color:#71717A; line-height:1.55;">
+                      Our Partner Manager contacts you via WhatsApp to align your custom pricing tiers, travel radius, and peak-wedding season availability.
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="36" valign="top" style="padding-right:14px; padding-top:2px;">
+                    <div style="width:28px; height:28px; border-radius:50%; background-color:#FDF4E6; border:1.5px solid #FCD34D; color:#B45309; text-align:center; line-height:26px; font-size:12px; font-weight:800;">
+                      3
+                    </div>
                   </td>
                   <td valign="top">
-                    <div style="font-size:13px; font-weight:700; color:#FFFFFF;">Verified Badge &amp; Direct High-Value Leads</div>
-                    <div style="font-size:12px; color:#A1A1AA; line-height:1.5;">Get listed on PartyBala's premium platform and receive qualified bridal booking inquiries directly with upfront deposits.</div>
+                    <div style="font-size:14px; font-weight:700; color:#18181B; margin-bottom:2px;">
+                      Verified Badge &amp; Direct High-Value Leads
+                    </div>
+                    <div style="font-size:12px; color:#71717A; line-height:1.55;">
+                      Get listed on PartyBala's premium directory and receive qualified bridal booking inquiries directly with upfront secured deposits.
+                    </div>
                   </td>
                 </tr>
               </table>
 
-              <!-- Partner CTA Button -->
+              <!-- Direct WhatsApp Connect CTA -->
               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:26px 0 10px 0;">
                 <tr>
                   <td align="center">
                     <a href="https://wa.me/${whatsappDigits}?text=${whatsappMsg}" 
                        target="_blank"
-                       style="display:inline-block; background:linear-gradient(135deg, #B45309 0%, #D4AF37 100%); color:#09090B; text-decoration:none; font-size:14px; font-weight:800; padding:15px 30px; border-radius:12px; box-shadow:0 6px 20px rgba(212,175,55,0.3); letter-spacing:0.5px;">
-                      🤝 Connect with Artist Onboarding Desk (${PARTNER_PHONE})
+                       style="display:inline-block; background-color:#059669; background:linear-gradient(135deg, #059669 0%, #047857 100%); color:#FFFFFF; text-decoration:none; font-size:14px; font-weight:700; padding:15px 30px; border-radius:12px; box-shadow:0 6px 18px rgba(5,150,105,0.25); letter-spacing:0.3px;">
+                      💬 Connect with Partner Desk on WhatsApp (${PARTNER_PHONE})
                     </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" style="padding-top:10px;">
+                    <span style="font-size:11px; color:#71717A;">
+                      Direct WhatsApp support for artist onboarding &bull; Fast-track verification
+                    </span>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Partner Trust Highlights -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:22px 0 0 0; background-color:#FAF8F5; border-radius:10px; border:1px solid #EADCC9; text-align:center;">
+                <tr>
+                  <td width="33%" style="padding:8px 6px; font-size:11px; color:#52525B;">
+                    <strong style="color:#18181B; display:block; margin-bottom:2px;">💰 Guaranteed Payouts</strong>
+                    Advance deposits secured
+                  </td>
+                  <td width="33%" style="padding:8px 6px; font-size:11px; color:#52525B;">
+                    <strong style="color:#18181B; display:block; margin-bottom:2px;">👑 High-Value Brides</strong>
+                    No low-budget haggling
+                  </td>
+                  <td width="33%" style="padding:8px 6px; font-size:11px; color:#52525B;">
+                    <strong style="color:#18181B; display:block; margin-bottom:2px;">🛡️ Zero Fee</strong>
+                    No registration cost
                   </td>
                 </tr>
               </table>
@@ -783,18 +868,34 @@ function buildPartnerOnboardingEmailHtml(data, refId) {
             </td>
           </tr>
 
-          <!-- Partner Footer -->
+          <!-- Modern Light Luxury Footer (Matches Website) -->
           <tr>
-            <td style="background-color:#121214; padding:24px 25px; text-align:center; color:#71717A; font-size:11px; line-height:1.6; border-top:1px solid #27272A;">
-              <p style="margin:0 0 6px 0; color:#E4E4E7; font-weight:700; font-size:12px; letter-spacing:1px; text-transform:uppercase;">
+            <td style="background-color:#FAF7F2; border-top:1px solid #EADCC9; padding:26px 25px; text-align:center; color:#71717A; font-size:11px; line-height:1.65;">
+              
+              <!-- Direct Contact Badges in Footer -->
+              <div style="margin-bottom:12px;">
+                <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                  🌐 <a href="${OFFICIAL_WEBSITE_URL}" target="_blank" style="color:#18181B; text-decoration:none; font-weight:700;">${OFFICIAL_WEBSITE}</a>
+                </span>
+                <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                  📷 <a href="${INSTAGRAM_URL}" target="_blank" style="color:#D91B5C; text-decoration:none; font-weight:700;">${INSTAGRAM_HANDLE}</a>
+                </span>
+                <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                  🤝 Partner Desk: ${PARTNER_PHONE}
+                </span>
+                <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:3px;">
+                  ✉️ <a href="mailto:${OFFICIAL_EMAIL}" style="color:#D91B5C; text-decoration:none;">${OFFICIAL_EMAIL}</a>
+                </span>
+              </div>
+
+              <p style="margin:0 0 4px 0; color:#18181B; font-weight:700; font-size:12px;">
                 PartyBala Artist Network &amp; Guild
               </p>
-              <p style="margin:0 0 6px 0;">
-                Partner Desk Email: <a href="mailto:${OFFICIAL_EMAIL}" style="color:#D4AF37; text-decoration:none; font-weight:600;">${OFFICIAL_EMAIL}</a> 
-                &nbsp;|&nbsp; Artist Helpline: <a href="tel:${PARTNER_PHONE.replace(/[^0-9+]/g, '')}" style="color:#FFFFFF; text-decoration:none;">${PARTNER_PHONE}</a>
+              <p style="margin:0 0 8px 0; color:#71717A; font-size:11px;">
+                Kanpur Central Hub &bull; Serving Uttar Pradesh &amp; Pan-India
               </p>
-              <p style="margin:0; color:#52525B; font-size:10px;">
-                © 2026 PartyBala. Empowering India's Finest Bridal Artists.
+              <p style="margin:0; color:#A1A1AA; font-size:10px;">
+                © 2026 PartyBala. Empowering India's Finest Bridal Artists. <strong style="color:#D91B5C;">Your Plans, Our Duty.</strong>
               </p>
             </td>
           </tr>
@@ -817,49 +918,126 @@ function buildPartnerOnboardingEmailHtml(data, refId) {
  */
 function buildCustomerReviewEmailHtml(data, refId) {
   var name = data.fullName || "Valued Patron";
-  var service = data.serviceUsed || "Bridal Service";
+  var service = data.serviceUsed || "Bridal Artistry Service";
   var rating = data.rating || 5;
 
   return `
 <!DOCTYPE html>
-<html>
-<body style="margin:0; padding:30px 15px; background-color:#FAF7F2; font-family:'Segoe UI', Arial, sans-serif; color:#27272A;">
-  <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PartyBala - Thank You For Your Review</title>
+</head>
+<body style="margin:0; padding:0; background-color:#FAF7F2; font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; color:#27272A; -webkit-font-smoothing:antialiased;">
+  
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FAF7F2; padding:36px 14px;">
     <tr>
       <td align="center">
-        <table width="100%" style="max-width:550px; background-color:#FFFFFF; border-radius:16px; overflow:hidden; border:1px solid #E8DDD2; box-shadow:0 10px 30px rgba(0,0,0,0.06);">
-          <tr><td height="5" style="background:#D4AF37;"></td></tr>
+        
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:580px; background-color:#FFFFFF; border-radius:20px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.06); border:1px solid #EADCC9;">
+          
+          <!-- Top Tricolor Hairline -->
           <tr>
-            <td align="center" style="background:#2D0619; padding:28px 20px;">
-              <img src="${LOGO_URL}" width="64" height="64" style="border-radius:50%; border:2px solid #D4AF37;" />
-              <h2 style="color:#FFFFFF; margin:10px 0 0 0; font-family:Georgia, serif; font-size:22px; letter-spacing:2px;">PARTYBALA</h2>
-              <p style="color:#D4AF37; font-size:11px; margin:4px 0 0 0; letter-spacing:1px;">LUXURY BRIDAL ARTISTRY</p>
-            </td>
+            <td height="4" style="background:linear-gradient(90deg, #D91B5C 0%, #D4AF37 50%, #059669 100%);"></td>
           </tr>
+
+          <!-- Modern Luxury Light Header -->
           <tr>
-            <td style="padding:30px 25px;">
-              <h3 style="margin-top:0; color:#18181B;">Thank You, ${name}!</h3>
-              <p style="font-size:14px; line-height:1.6; color:#52525B;">
-                We are immensely grateful for taking the time to share your gracious review for <strong>${service}</strong> (${rating} / 5 Stars).
+            <td align="center" style="background-color:#FFFFFF; padding:34px 30px 22px 30px; text-align:center; border-bottom:1px solid #F4EBE1;">
+              
+              <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 12px auto;">
+                <tr>
+                  <td align="center">
+                    <img src="${LOGO_URL}" 
+                         alt="PartyBala Logo" 
+                         width="64" 
+                         height="64" 
+                         style="display:block; object-fit:contain; border-radius:14px; border:1.5px solid #EADCC9; background-color:#FFFFFF; padding:4px; box-shadow:0 4px 12px rgba(0,0,0,0.04); margin:0 auto;" />
+                  </td>
+                </tr>
+              </table>
+
+              <h1 style="margin:0; font-family:Georgia, 'Playfair Display', serif; font-size:26px; font-weight:800; color:#18181B; letter-spacing:0.5px;">
+                Party<span style="color:#D91B5C;">Bala</span>
+              </h1>
+              
+              <p style="margin:6px 0 0 0; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#854D0E; font-weight:700;">
+                Your Plans, Our Duty &bull; Luxury Bridal Concierge
               </p>
-              <p style="font-size:14px; line-height:1.6; color:#52525B;">
-                Your feedback inspires our artists to maintain the highest standards of beauty, tradition, and customer delight.
-              </p>
-              <div style="background-color:#FAF8F5; border:1px solid #EADCC9; border-radius:10px; padding:15px; margin:20px 0; text-align:center;">
-                <span style="font-size:18px; color:#D4AF37;">★★★★★</span>
-                <p style="font-size:12px; color:#71717A; margin:6px 0 0 0;">Review Reference: ${refId}</p>
+
+              <div style="display:inline-block; margin-top:14px; padding:5px 18px; background-color:#FDFBF7; border:1px solid #D4AF37; border-radius:30px; font-size:11px; color:#854D0E; font-weight:700; letter-spacing:0.8px;">
+                REVIEW REF: #${refId}
               </div>
+
             </td>
           </tr>
+
+          <!-- Body Content -->
           <tr>
-            <td style="background-color:#18181B; padding:18px; text-align:center; color:#A1A1AA; font-size:11px;">
-              © 2026 PartyBala Luxury Network • <a href="mailto:${OFFICIAL_EMAIL}" style="color:#D4AF37; text-decoration:none;">${OFFICIAL_EMAIL}</a>
+            <td style="padding:32px 32px 24px 32px;">
+              <h2 style="margin:0 0 12px 0; font-family:Georgia, 'Playfair Display', serif; font-size:22px; color:#18181B; font-weight:700;">
+                Thank You, ${name}!
+              </h2>
+              <p style="margin:0 0 16px 0; font-size:14px; line-height:1.65; color:#52525B;">
+                We are immensely grateful for taking the time to share your gracious review for <strong>${service}</strong>.
+              </p>
+              <p style="margin:0 0 20px 0; font-size:14px; line-height:1.65; color:#52525B;">
+                Your feedback empowers our artists and helps us uphold the highest standard of bridal artistry, perfection, and joyful celebration.
+              </p>
+
+              <!-- Star Rating Showcase Box -->
+              <div style="background-color:#FDFBF7; border:1px solid #EADCC9; border-radius:14px; padding:20px; margin:22px 0; text-align:center;">
+                <div style="font-size:24px; color:#D4AF37; letter-spacing:4px; margin-bottom:6px;">
+                  ★★★★★
+                </div>
+                <div style="font-size:13px; font-weight:700; color:#18181B;">
+                  ${rating} / 5 Stars Verified Experience
+                </div>
+                <p style="font-size:11px; color:#71717A; margin:6px 0 0 0;">
+                  Reference: #${refId} &bull; Recorded in PartyBala Quality Registry
+                </p>
+              </div>
+
+              <!-- Customer Care Note -->
+              <p style="margin:20px 0 0 0; font-size:13px; color:#71717A; line-height:1.6; text-align:center;">
+                Need assistance with future celebrations or bespoke bridal packages? Our concierge is always at your service.
+              </p>
             </td>
           </tr>
+
+          <!-- Modern Light Luxury Footer -->
+          <tr>
+            <td style="background-color:#FAF7F2; border-top:1px solid #EADCC9; padding:24px 20px; text-align:center; color:#71717A; font-size:11px; line-height:1.65;">
+              <div style="margin-bottom:10px;">
+                <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:2px;">
+                  🌐 <a href="${OFFICIAL_WEBSITE_URL}" target="_blank" style="color:#18181B; text-decoration:none; font-weight:700;">${OFFICIAL_WEBSITE}</a>
+                </span>
+                <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:2px;">
+                  📷 <a href="${INSTAGRAM_URL}" target="_blank" style="color:#D91B5C; text-decoration:none; font-weight:700;">${INSTAGRAM_HANDLE}</a>
+                </span>
+                <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:2px;">
+                  📞 Concierge: ${CUSTOMER_PHONE}
+                </span>
+                <span style="display:inline-block; padding:4px 12px; background-color:#FFFFFF; border:1px solid #EADCC9; border-radius:20px; font-size:11px; color:#18181B; font-weight:600; margin:2px;">
+                  ✉️ <a href="mailto:${OFFICIAL_EMAIL}" style="color:#D91B5C; text-decoration:none;">${OFFICIAL_EMAIL}</a>
+                </span>
+              </div>
+              <p style="margin:0 0 4px 0; color:#18181B; font-weight:700; font-size:12px;">
+                PartyBala Luxury Bridal &amp; Beauty Concierge
+              </p>
+              <p style="margin:0; color:#A1A1AA; font-size:10px;">
+                © 2026 PartyBala. All rights reserved. <strong style="color:#D91B5C;">Your Plans, Our Duty.</strong>
+              </p>
+            </td>
+          </tr>
+
         </table>
+
       </td>
     </tr>
   </table>
+
 </body>
 </html>
   `;
@@ -901,18 +1079,32 @@ function buildAdminAlertEmailHtml(formType, data, timestamp, refId) {
       <td align="center">
         <table width="100%" style="max-width:620px; background-color:#FFFFFF; border-radius:14px; overflow:hidden; border:1px solid #CBD5E1; box-shadow:0 8px 24px rgba(0,0,0,0.06);">
           
+          <!-- Top Brand Hairline -->
+          <tr>
+            <td height="4" style="background:linear-gradient(90deg, #D91B5C 0%, #D4AF37 50%, #059669 100%);"></td>
+          </tr>
+
           <!-- Admin Alert Header -->
           <tr>
-            <td style="background:${isPartner ? '#1E293B' : '#831843'}; padding:22px 24px; color:#FFFFFF;">
-              <span style="display:inline-block; background:rgba(255,255,255,0.2); padding:3px 10px; border-radius:20px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase;">
-                ⚡ NEW INCOMING LEAD
-              </span>
-              <h2 style="margin:8px 0 0 0; font-size:20px; color:#FFFFFF;">
-                ${clientName} • ${refId}
-              </h2>
-              <p style="margin:4px 0 0 0; font-size:12px; color:rgba(255,255,255,0.8);">
-                Captured on ${timestamp} via ${formType}
-              </p>
+            <td style="background:${isPartner ? '#0F172A' : '#4C0519'}; padding:22px 24px; color:#FFFFFF;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td valign="middle">
+                    <span style="display:inline-block; background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.3); padding:3px 10px; border-radius:20px; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase;">
+                      ⚡ NEW INCOMING LEAD &bull; ${formType.toUpperCase()}
+                    </span>
+                    <h2 style="margin:8px 0 0 0; font-size:22px; color:#FFFFFF; font-weight:700;">
+                      ${clientName} &bull; Ref #${refId}
+                    </h2>
+                    <p style="margin:4px 0 0 0; font-size:12px; color:rgba(255,255,255,0.85);">
+                      Captured on ${timestamp}
+                    </p>
+                  </td>
+                  <td width="55" align="right" valign="middle">
+                    <img src="${LOGO_URL}" width="48" height="48" style="display:block; object-fit:contain; border-radius:12px; border:1px solid rgba(255,255,255,0.4); background:#FFFFFF; padding:2px;" alt="PartyBala" />
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
 
@@ -981,9 +1173,13 @@ function doGet(e) {
       brand: "PartyBala Luxury Bridal Network",
       spreadsheetName: ss ? ss.getName() : "Unknown",
       spreadsheetId: TARGET_SPREADSHEET_ID,
+      officialWebsite: OFFICIAL_WEBSITE,
+      officialWebsiteUrl: OFFICIAL_WEBSITE_URL,
       officialSenderEmail: OFFICIAL_EMAIL,
       customerHelpline: CUSTOMER_PHONE,
       partnerHelpline: PARTNER_PHONE,
+      instagramHandle: INSTAGRAM_HANDLE,
+      instagramUrl: INSTAGRAM_URL,
       logoUrl: LOGO_URL,
       message: "PartyBala Google Apps Script Web App & Luxury Email Engine is operational."
     }))
@@ -1019,7 +1215,7 @@ function testSendLuxuryEmails() {
     profession: "Bridal Mehndi Artist",
     city: "Kanpur",
     experience: "7+ Years",
-    portfolioLink: "https://instagram.com/partybala_official",
+    portfolioLink: "https://instagram.com/party_bala",
     notes: "Testing partner welcome email dispatch."
   };
 

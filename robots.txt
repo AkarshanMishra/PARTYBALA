@@ -1,5 +1,5 @@
 # PartyBala Robots Configuration
-# https://partybala.com/
+# https://www.partybala.com/
 
 User-agent: *
 Allow: /
@@ -12,4 +12,4 @@ Disallow: /google-apps-script/
 Disallow: /.github/
 
 # Sitemap location
-Sitemap: https://partybala.com/sitemap.xml
+Sitemap: https://www.partybala.com/sitemap.xml

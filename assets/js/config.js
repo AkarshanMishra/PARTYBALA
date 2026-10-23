@@ -24,14 +24,17 @@ const PARTYBALA_CONFIG = {
   PHONE_CUSTOMER_DISPLAY: "+91 89330 23302",
   PHONE_PARTNER_DISPLAY: "+91 89330 73307",
 
-  // 4. BRAND & EMAIL DETAILS
+  // 4. BRAND, SOCIAL, WEBSITE & EMAIL DETAILS
   BRAND_NAME: "PartyBala",
   DEFAULT_CITY: "Kanpur",
   LOGO_PATH: "assets/images/partybala-logo.png",
   TAGLINE: "Your Plans, Our Duty",
+  OFFICIAL_WEBSITE: "www.partybala.com",
+  OFFICIAL_WEBSITE_URL: "https://www.partybala.com",
   SUPPORT_EMAIL: "info@partybala.com",
   ADMIN_EMAIL: "info@partybala.com",
-  INSTAGRAM_HANDLE: "@partybala_official",
+  INSTAGRAM_HANDLE: "@party_bala",
+  INSTAGRAM_URL: "https://www.instagram.com/party_bala/",
 
   // 5. BEHAVIOR
   ENABLE_WHATSAPP_HANDOFF: true,
