@@ -1,0 +1,13 @@
+# PartyBala Static Clean URL Redirects (Cloudflare Pages / Netlify)
+
+# Clean URLs
+/book-makeup       /book-makeup.html       200
+/book-mehndi       /book-mehndi.html       200
+/partner           /partner.html           200
+
+# Canonical Redirects for Legacy Form Pages
+/partner-makeup    /partner.html?profession=makeup 301
+/partner-mehndi    /partner.html?profession=mehndi 301
+
+# Fallback 404
+/*                 /404.html               404

@@ -1,0 +1,15 @@
+# PartyBala Robots Configuration
+# https://partybala.com/
+
+User-agent: *
+Allow: /
+Allow: /assets/css/
+Allow: /assets/images/
+Allow: /assets/js/
+
+# Disallow internal scripts & tools
+Disallow: /google-apps-script/
+Disallow: /.github/
+
+# Sitemap location
+Sitemap: https://partybala.com/sitemap.xml
