@@ -237,15 +237,27 @@ h1, h2, h3, h4, h5, p, span, a, label {
 }
 
 /* ========================================================================= */
-/* ULTRA-LUXURY LIGHT THEME FOR MOBILE & TABLET (max-width: 1023px)          */
+/* ULTRA-LUXURY LIGHT THEME & BULLETPROOF TABLET RESPONSIVENESS              */
 /* ========================================================================= */
-@media (max-width: 1023px) {
-  /* Ensure page backgrounds on mobile & tablet are soft luxury champagne/warm-white */
+/* Mobile Only: reserve space for bottom thumb dock (width < 768px) */
+@media (max-width: 767px) {
   body {
     background-color: #faf7f2 !important;
-    padding-bottom: 78px !important; /* Reserve comfortable space for bottom app dock */
+    padding-bottom: 78px !important; /* Reserve space for bottom mobile dock */
   }
+}
 
+/* Tablet (768px - 1023px) and Desktop (1024px+): Natural Full-Height View */
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0 !important;
+  }
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1023px) {
   /* Mobile Feature Card Backdrops (Pillars & Badges) */
   .mobile-feature-card {
     background-color: #ffffff !important;

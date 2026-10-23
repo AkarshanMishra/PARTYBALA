@@ -89,8 +89,8 @@
         </div>
       </a>
 
-      <!-- 4 Core Navigation Headings (Desktop) -->
-      <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-bold text-gray-700">
+      <!-- 4 Core Navigation Headings (Desktop & Tablet) -->
+      <nav class="hidden md:flex items-center gap-3.5 lg:gap-6 xl:gap-8 text-xs lg:text-sm font-bold text-gray-700">
         <a href="index.html" class="text-[#d91b5c] font-bold border-b-2 border-[#d91b5c] pb-1 transition">Home</a>
         <a href="book-mehndi.html" class="hover:text-[#d91b5c] transition">Book Mehndi</a>
         <a href="book-makeup.html" class="hover:text-[#d91b5c] transition">Book Makeup</a>
@@ -107,12 +107,12 @@
           <span>Connect</span>
         </a>
 
-        <!-- Luxury Mobile Menu Hamburger Toggle Button -->
+        <!-- Luxury Mobile Menu Hamburger Toggle Button (Mobile Only) -->
         <button id="mobile-menu-toggle" 
                 type="button" 
                 aria-label="Toggle Navigation Menu" 
                 aria-expanded="false"
-                class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-white border border-[#eddcd2] text-gray-800 shadow-sm active:scale-95 hover:border-[#d91b5c] transition focus:outline-none">
+                class="md:hidden w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-white border border-[#eddcd2] text-gray-800 shadow-sm active:scale-95 hover:border-[#d91b5c] transition focus:outline-none">
           <svg id="menu-icon-bars" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
@@ -124,8 +124,8 @@
 
     </div>
 
-    <!-- Luxury Animated Mobile Menu Drawer (Dropdown) -->
-    <div id="mobile-menu-drawer" class="hidden lg:hidden border-t border-[#eddcd2] bg-[#fbf7f0]/98 backdrop-blur-xl px-4 py-4 shadow-xl animate-slide-down">
+    <!-- Luxury Animated Mobile Menu Drawer (Mobile Only) -->
+    <div id="mobile-menu-drawer" class="hidden md:hidden border-t border-[#eddcd2] bg-[#fbf7f0]/98 backdrop-blur-xl px-4 py-4 shadow-xl animate-slide-down">
       <div class="space-y-2">
         <a href="index.html" class="flex items-center justify-between p-3 rounded-xl transition bg-rose-50 border border-rose-200 text-[#d91b5c] font-bold">
           <div class="flex items-center gap-3">
@@ -212,10 +212,10 @@
         </svg>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 lg:gap-10 items-center relative z-10">
 
         <!-- LEFT COLUMN: TITLE, SUBTITLE, BUTTON & 3 TRUST BADGES -->
-        <div class="lg:col-span-6 text-left space-y-6">
+        <div class="md:col-span-6 text-left space-y-5 lg:space-y-6">
           
           <!-- Eyebrow Subtitle -->
           <div class="flex items-center gap-3">
@@ -286,7 +286,7 @@
         </div>
 
         <!-- RIGHT COLUMN: SPLIT-ARCH DUO SHOWCASE (MAKEUP & MEHNDI) -->
-        <div class="lg:col-span-6 relative flex justify-center items-center">
+        <div class="md:col-span-6 relative flex justify-center items-center mt-6 md:mt-0">
           
           <!-- Combined Curved Dual Artwork Container (Clean Full HD Dual Hero Showcase) -->
           <div class="relative w-full max-w-[540px] aspect-[1024/682] rounded-3xl overflow-hidden shadow-2xl border-2 border-white/90 bg-white group">
@@ -989,10 +989,10 @@
           </svg>
         </div>
 
-        <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8">
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 lg:gap-8">
           
           <!-- Left: Handshake Icon & Content -->
-          <div class="flex items-start sm:items-center gap-4 sm:gap-5 text-left w-full lg:w-auto">
+          <div class="flex items-start sm:items-center gap-4 sm:gap-5 text-left w-full md:w-auto">
             
             <!-- Handshake Icon Pill -->
             <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-rose-100 to-rose-50 border-2 border-rose-200/90 flex items-center justify-center text-[#d91b5c] shrink-0 shadow-sm">
@@ -1022,7 +1022,7 @@
           </div>
 
           <!-- Middle / Right: 3 Value Pillars & Action Button -->
-          <div class="flex flex-col sm:flex-row items-center gap-5 sm:gap-8 w-full lg:w-auto justify-between lg:justify-end border-t lg:border-t-0 border-[#eddcd2]/70 pt-4 lg:pt-0">
+          <div class="flex flex-col sm:flex-row items-center gap-5 sm:gap-8 w-full md:w-auto justify-between md:justify-end border-t md:border-t-0 border-[#eddcd2]/70 pt-4 md:pt-0">
             
             <!-- 3 Pillars -->
             <div class="flex items-center gap-4 sm:gap-6 text-center">
@@ -1355,9 +1355,9 @@
   </footer>
 
   <!-- ========================================================================= -->
-  <!-- FIXED LUXURY MOBILE BOTTOM APP-BAR (Mobile & Tablet < 1024px Only)       -->
+  <!-- FIXED LUXURY MOBILE BOTTOM APP-BAR (Mobile Phones < 768px Only)          -->
   <!-- ========================================================================= -->
-  <nav class="mobile-bottom-nav lg:hidden" aria-label="Mobile Bottom Navigation">
+  <nav class="mobile-bottom-nav md:hidden" aria-label="Mobile Bottom Navigation">
     <div class="max-w-md mx-auto grid grid-cols-5 items-center text-center px-1">
       
       <!-- Tab 1: Home (Active) -->
