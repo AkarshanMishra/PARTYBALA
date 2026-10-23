@@ -61,7 +61,12 @@ function generateRefId(prefix) {
  */
 function doPost(e) {
   var lock = LockService.getScriptLock();
-  lock.tryLock(30000);
+  var acquiredLock = false;
+  try {
+    acquiredLock = lock.tryLock(25000);
+  } catch (lockErr) {
+    Logger.log("Script lock acquire notice: " + lockErr.toString());
+  }
 
   try {
     var ss = getTargetSpreadsheet();
@@ -241,7 +246,13 @@ function doPost(e) {
       }))
       .setMimeType(ContentService.MimeType.JSON);
   } finally {
-    lock.releaseLock();
+    try {
+      if (lock && acquiredLock && lock.hasLock && lock.hasLock()) {
+        lock.releaseLock();
+      }
+    } catch (releaseErr) {
+      Logger.log("Lock release notice: " + releaseErr.toString());
+    }
   }
 }
 
