@@ -361,29 +361,9 @@ function showSuccessModal(formType, data, isDemoMode) {
       : "Thank you! Your booking inquiry has been recorded. Our concierge team will match you with the finest verified artists and confirm availability shortly.");
 
   const name = data.fullName || data.artistName || "Valued User";
-  const phone = data.phone || "";
+  const phone = data.phone || data.whatsapp || "";
   const dateOrExp = data.eventDate ? `Date: ${data.eventDate}` : (data.experience ? `Experience: ${data.experience}` : "");
   const whatsappUrl = buildWhatsAppUrl(formType, data);
-
-  const targetSheetUrl = (typeof PARTYBALA_CONFIG !== 'undefined' && PARTYBALA_CONFIG.GOOGLE_SHEET_URL)
-    ? PARTYBALA_CONFIG.GOOGLE_SHEET_URL
-    : "https://docs.google.com/spreadsheets/d/1QwN0r1V8TsVY5rvDsswwQnBB7Tuj9U-NMuhpqx_S9rM/edit";
-
-  const demoNotice = isDemoMode ? `
-    <div class="mt-4 p-3.5 bg-amber-50 border border-amber-200 rounded-2xl text-amber-900 text-xs text-left">
-      <div class="font-bold mb-1.5 text-amber-800">
-        Target Sheet Connected: PartyBala Leads
-      </div>
-      <p class="text-gray-600 mb-2">To save directly into <a href="${targetSheetUrl}" target="_blank" class="text-rose-700 underline font-semibold">your Google Sheet</a>, deploy the script in <code class="bg-amber-100 px-1 py-0.5 rounded font-mono text-[11px]">google-apps-script/Code.gs</code> and paste your Web App URL into <code class="bg-amber-100 px-1 py-0.5 rounded font-mono text-[11px]">assets/js/config.js</code>.</p>
-      <a href="${targetSheetUrl}" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-bold text-amber-900 hover:text-amber-950 underline">
-        <span>Open Your Google Sheet ↗</span>
-      </a>
-    </div>
-  ` : `
-    <div class="mt-4 p-2.5 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-800 text-xs text-center">
-      <span>Saved to <a href="${targetSheetUrl}" target="_blank" class="underline font-semibold text-emerald-900">Your Google Sheet</a> successfully!</span>
-    </div>
-  `;
 
   const modalHtml = `
     <div id="partybala-success-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
@@ -421,19 +401,17 @@ function showSuccessModal(formType, data, isDemoMode) {
             <span class="text-gray-500">Contact:</span>
             <span class="font-medium text-gray-800">${escapeHtml(phone)}</span>
           </div>` : ''}
+          ${data.email ? `
+          <div class="flex justify-between py-0.5">
+            <span class="text-gray-500">Email:</span>
+            <span class="font-medium text-gray-800">${escapeHtml(data.email)}</span>
+          </div>` : ''}
           ${dateOrExp ? `
           <div class="flex justify-between py-0.5">
             <span class="text-gray-500">Reference:</span>
             <span class="font-medium text-gray-800">${escapeHtml(dateOrExp)}</span>
           </div>` : ''}
         </div>
-
-        ${demoNotice}
-
-        ${data.email ? `
-        <div class="mt-3 p-3 bg-rose-50/70 border border-rose-200/80 rounded-xl text-rose-900 text-xs text-center flex items-center justify-center gap-2">
-          <span>✉️ A luxury confirmation receipt has also been dispatched to <strong>${escapeHtml(data.email)}</strong> from <strong>info@partybala.com</strong>.</span>
-        </div>` : ''}
 
         <!-- Actions -->
         <div class="mt-6 flex flex-col sm:flex-row gap-3">
