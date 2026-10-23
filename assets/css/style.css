@@ -235,3 +235,89 @@ button, a, input, select, textarea, label {
 h1, h2, h3, h4, h5, p, span, a, label {
   overflow-wrap: break-word;
 }
+
+/* ========================================================================= */
+/* ULTRA-LUXURY LIGHT THEME FOR MOBILE & TABLET (max-width: 1023px)          */
+/* ========================================================================= */
+@media (max-width: 1023px) {
+  /* Ensure page backgrounds on mobile & tablet are soft luxury champagne/warm-white */
+  body {
+    background-color: #faf7f2 !important;
+    padding-bottom: 78px !important; /* Reserve comfortable space for bottom app dock */
+  }
+
+  /* Seamless Light Luxury Theme for Footer on Mobile & Tablet */
+  footer.luxury-footer {
+    background: #ffffff !important;
+    background-image: linear-gradient(180deg, #fffdfa 0%, #faf5ef 100%) !important;
+    color: #4b5563 !important;
+    border-top: 1.5px solid #eedfd5 !important;
+    box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.02) !important;
+  }
+
+  footer.luxury-footer .footer-brand-title {
+    color: #18181b !important;
+  }
+
+  footer.luxury-footer .footer-brand-subtitle {
+    color: #b45309 !important;
+  }
+
+  footer.luxury-footer nav a {
+    color: #4b5563 !important;
+  }
+
+  footer.luxury-footer nav a:hover {
+    color: #d91b5c !important;
+  }
+
+  footer.luxury-footer .footer-partner-btn {
+    background-color: #fffbeb !important;
+    border-color: #fde68a !important;
+    color: #92400e !important;
+  }
+
+  footer.luxury-footer .footer-trust-chip {
+    background-color: #ffffff !important;
+    border: 1px solid #f1e4db !important;
+    color: #4b5563 !important;
+  }
+
+  footer.luxury-footer .footer-bottom-text {
+    color: #71717a !important;
+  }
+
+  footer.luxury-footer .footer-bottom-text a {
+    color: #d91b5c !important;
+  }
+
+  /* Hide dark ambient glow on mobile for pure crisp brightness */
+  footer.luxury-footer .footer-dark-glow {
+    display: none !important;
+  }
+
+  /* Mobile Feature Card Backdrops (Pillars & Badges) */
+  .mobile-feature-card {
+    background-color: #ffffff !important;
+    border: 1px solid #f3e5dc !important;
+    border-radius: 1.25rem !important;
+    padding: 1.25rem 0.75rem !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02) !important;
+  }
+}
+
+/* Fixed Bottom Navigation Dock Styling */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 45;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid #ebdcd0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+  padding-bottom: env(safe-area-inset-bottom, 6px);
+  padding-top: 6px;
+}
