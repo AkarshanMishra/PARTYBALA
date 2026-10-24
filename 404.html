@@ -112,15 +112,17 @@
           </div>
         </a>
 
-        <a href="https://wa.me/918933023302?text=Hello%20PartyBala%2C%20I%20need%20help%20navigating%20the%20website" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3.5 rounded-2xl bg-[#faf7f2] hover:bg-white border border-[#eddcd2] hover:border-emerald-600 shadow-sm hover:shadow-md transition group">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-5 h-5">
+        <button type="button" 
+                onclick="window.openPartyBalaConnectModal('all')"
+                class="flex items-center gap-3 p-3.5 rounded-2xl bg-[#faf7f2] hover:bg-white border border-[#eddcd2] hover:border-[#d91b5c] shadow-sm hover:shadow-md transition group text-left cursor-pointer">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-[#d91b5c] to-[#c2144d] text-white flex items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform">
+            📞
           </div>
           <div>
-            <h4 class="text-xs sm:text-sm font-bold text-gray-900 group-hover:text-emerald-700 transition">Live WhatsApp</h4>
-            <span class="text-[10px] text-gray-500">Instant Concierge</span>
+            <h4 class="text-xs sm:text-sm font-bold text-gray-900 group-hover:text-[#d91b5c] transition">Connect Us</h4>
+            <span class="text-[10px] text-gray-500">Call (10&ndash;6) &bull; 24/7 WhatsApp &amp; Email</span>
           </div>
-        </a>
+        </button>
 
       </div>
 
@@ -149,7 +151,9 @@
     </div>
   </footer>
 
-  <!-- Countdown Script & Security Suite -->
+  <!-- Configuration, Call Widget & Security Suite -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/call-widget.js"></script>
   <script src="assets/js/security.js"></script>
   <script>
     (function () {
