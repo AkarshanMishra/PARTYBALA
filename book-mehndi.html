@@ -105,6 +105,8 @@
       box-shadow: 0 8px 25px -5px rgba(4, 78, 58, 0.35);
     }
   </style>
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css?v=3.1">
 </head>
 <body class="bg-luxury-light min-h-screen text-gray-800 antialiased selection:bg-rose-200 selection:text-rose-900">
 
@@ -888,7 +890,9 @@
   <!-- ========================================================================= -->
   <!-- FIXED LUXURY MOBILE BOTTOM APP-BAR (Mobile Phones < 768px Only)          -->
   <!-- ========================================================================= -->
-  <nav class="mobile-bottom-nav md:hidden" aria-label="Mobile Bottom Navigation">
+  <nav class="mobile-bottom-nav fixed bottom-0 left-0 right-0 z-[9990] w-full md:hidden bg-white/95 backdrop-blur-md border-t border-[#ebdcd0]" 
+       style="position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 9990 !important; -webkit-transform: translateZ(0) !important; transform: translateZ(0) !important;" 
+       aria-label="Mobile Bottom Navigation">
     <div class="max-w-md mx-auto grid grid-cols-5 items-center text-center px-1">
       
       <!-- Tab 1: Home -->
