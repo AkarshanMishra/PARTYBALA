@@ -237,13 +237,38 @@ h1, h2, h3, h4, h5, p, span, a, label {
 }
 
 /* ========================================================================= */
-/* ULTRA-LUXURY LIGHT THEME & BULLETPROOF TABLET RESPONSIVENESS              */
+/* ULTRA-LUXURY LIGHT THEME & BULLETPROOF MOBILE DOCK                        */
 /* ========================================================================= */
 /* Mobile Only: reserve space for bottom thumb dock (width < 768px) */
 @media (max-width: 767px) {
   body {
     background-color: #faf7f2 !important;
-    padding-bottom: 78px !important; /* Reserve space for bottom mobile dock */
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 12px)) !important;
+  }
+
+  /* Fixed Bottom Navigation Dock Styling on Mobile Phones */
+  .mobile-bottom-nav {
+    display: block !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    z-index: 9990 !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    will-change: transform !important;
+    background-color: rgba(255, 255, 255, 0.97) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-top: 1px solid rgba(226, 203, 185, 0.85) !important;
+    box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.08) !important;
+    padding-top: 6px !important;
+    padding-bottom: calc(env(safe-area-inset-bottom, 6px) + 4px) !important;
+    margin: 0 !important;
   }
 }
 
@@ -257,31 +282,304 @@ h1, h2, h3, h4, h5, p, span, a, label {
   }
 }
 
-@media (max-width: 1023px) {
-  /* Mobile Feature Card Backdrops (Pillars & Badges) */
+/* ========================================================================= */
+/* DEDICATED TABLET RESPONSIVE ENGINE (641px - 1024px Viewports)             */
+/* Covers iPad Mini, iPad 10.2", iPad Air 10.9", Galaxy Tab & Tablet Screens */
+/* ========================================================================= */
+@media (min-width: 641px) and (max-width: 1024px) {
+
+  /* --- 1. TABLET TYPOGRAPHY & READABILITY --- */
+  body {
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+  }
+
+  h1 {
+    font-size: 2.75rem !important; /* ~44px */
+    line-height: 1.16 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  h2 {
+    font-size: 2.25rem !important; /* ~36px */
+    line-height: 1.24 !important;
+    letter-spacing: -0.015em !important;
+  }
+
+  h3 {
+    font-size: 1.6rem !important; /* ~25.6px */
+    line-height: 1.3 !important;
+  }
+
+  h4 {
+    font-size: 1.25rem !important; /* ~20px */
+    line-height: 1.35 !important;
+  }
+
+  p {
+    font-size: 1.025rem !important; /* 16.4px */
+    line-height: 1.65 !important;
+  }
+
+  /* Upgrade micro-labels, tags and small captions */
+  .text-\[9px\],
+  .text-\[10px\],
+  .text-\[11px\],
+  .text-xs {
+    font-size: 13.5px !important;
+    line-height: 1.45 !important;
+  }
+
+  .text-sm {
+    font-size: 15.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  .partybala-ref-chip,
+  aside[aria-label="Announcement"] span,
+  .inline-flex.rounded-full span {
+    font-size: 13.5px !important;
+  }
+
+  /* --- 2. TABLET IMAGE ENHANCEMENTS & SHOWCASE GRIDS --- */
+  /* Occasion circles in Hero & Category sections */
+  .w-14.h-14,
+  .sm\:w-16.sm\:h-16,
+  a[href*="-styles"] > div.rounded-full,
+  .grid-cols-2.sm\:grid-cols-4 a > div.rounded-full {
+    width: 5.25rem !important; /* 84px */
+    height: 5.25rem !important;
+  }
+
+  .grid-cols-2.sm\:grid-cols-4 a,
+  a[href*="-styles"].rounded-2xl {
+    padding: 1.15rem 0.85rem !important;
+  }
+
+  .grid-cols-2.sm\:grid-cols-4 a span.text-xs,
+  .grid-cols-2.sm\:grid-cols-4 a span.text-sm {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    margin-top: 0.6rem !important;
+  }
+
+  .grid-cols-2.sm\:grid-cols-4 a span.text-\[10px\],
+  .grid-cols-2.sm\:grid-cols-4 a span.text-gray-500 {
+    font-size: 13px !important;
+  }
+
+  /* Style Gallery Grids (Prevent cramped 4-column squishing on tablets) */
+  #mehndi-styles .grid,
+  #makeup-styles .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.75rem !important;
+  }
+
+  #mehndi-styles .grid > div,
+  #makeup-styles .grid > div {
+    border-radius: 1.25rem !important;
+  }
+
+  #mehndi-styles .grid > div h3,
+  #makeup-styles .grid > div h3 {
+    font-size: 16.5px !important;
+    padding-top: 0.85rem !important;
+    padding-bottom: 0.85rem !important;
+  }
+
+  /* Hero Showcase Artwork on Homepage */
+  .aspect-\[1024\/682\] {
+    max-width: 600px !important;
+    aspect-ratio: 16 / 10 !important;
+    border-radius: 1.75rem !important;
+  }
+
+  /* Royal Arch Frames on Booking Pages */
+  .royal-arch-frame {
+    width: 360px !important;
+    height: 480px !important;
+  }
+
+  /* Service Showcase Cards on Homepage */
+  #our-services .grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    gap: 1.75rem !important;
+  }
+
+  #our-services .group {
+    flex-direction: row !important;
+    padding: 1.75rem !important;
+    gap: 1.75rem !important;
+  }
+
+  #our-services .w-full.sm\:w-48 {
+    width: 14rem !important; /* 224px */
+    height: 14rem !important;
+    border-radius: 1.25rem !important;
+  }
+
+  #our-services h3 {
+    font-size: 1.65rem !important;
+  }
+
+  #our-services p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  #our-services a.rounded-full {
+    font-size: 15px !important;
+    padding: 0.85rem 1.75rem !important;
+  }
+
+  /* Real Bridal Work Carousel on Homepage */
+  #work-carousel-track .work-item {
+    width: 16.5rem !important; /* 264px */
+    height: 16.5rem !important;
+    border-radius: 1.25rem !important;
+  }
+
+  #carousel-prev-btn,
+  #carousel-next-btn {
+    width: 3rem !important; /* 48px */
+    height: 3rem !important;
+  }
+
+  #carousel-prev-btn svg,
+  #carousel-next-btn svg {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+  }
+
+  /* Trust Strips & Feature Pillars */
   .mobile-feature-card {
+    padding: 1.5rem 1rem !important;
+    border-radius: 1.25rem !important;
     background-color: #ffffff !important;
     border: 1px solid #f3e5dc !important;
-    border-radius: 1.25rem !important;
-    padding: 1.25rem 0.75rem !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02) !important;
   }
-}
 
-/* Fixed Bottom Navigation Dock Styling */
-.mobile-bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 45;
-  background-color: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid #ebdcd0;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
-  padding-bottom: env(safe-area-inset-bottom, 6px);
-  padding-top: 6px;
+  .mobile-feature-card .rounded-full {
+    width: 4.5rem !important; /* 72px */
+    height: 4.5rem !important;
+  }
+
+  .mobile-feature-card h4 {
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* --- 3. TABLET FORMS OPTIMIZATION --- */
+  /* Form Card Container Padding */
+  #booking-form .rounded-2xl,
+  #booking-form .rounded-3xl,
+  #partner-registration-form {
+    padding: 2.5rem 2.25rem !important;
+  }
+
+  /* Input Fields, Selects, Textareas */
+  form[data-partybala-form] input[type="text"],
+  form[data-partybala-form] input[type="tel"],
+  form[data-partybala-form] input[type="email"],
+  form[data-partybala-form] input[type="url"],
+  form[data-partybala-form] input[type="date"],
+  form[data-partybala-form] select,
+  form[data-partybala-form] textarea,
+  .form-input-luxury {
+    font-size: 16.5px !important;
+    min-height: 54px !important;
+    padding: 0.95rem 1.25rem !important;
+    border-radius: 0.875rem !important;
+    border-width: 1.5px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Maintain generous left padding for inputs with icons */
+  form[data-partybala-form] input.pl-10,
+  form[data-partybala-form] input.pl-11,
+  form[data-partybala-form] input[type="text"].pl-10,
+  form[data-partybala-form] input[type="tel"].pl-10,
+  form[data-partybala-form] input[type="email"].pl-10,
+  form[data-partybala-form] input[type="url"].pl-10,
+  form[data-partybala-form] select.pl-10,
+  form[data-partybala-form] .form-input-luxury.pl-10,
+  .form-input-luxury.pl-10,
+  .pl-10,
+  .pl-11 {
+    padding-left: 2.85rem !important;
+  }
+
+  form[data-partybala-form] textarea {
+    min-height: 115px !important;
+  }
+
+  /* Form Field Labels */
+  form[data-partybala-form] label {
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.55rem !important;
+    display: block !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  /* Form Helper Notes & Sub-text */
+  form[data-partybala-form] p,
+  form[data-partybala-form] span.text-\[11px\],
+  form[data-partybala-form] span.text-gray-400 {
+    font-size: 13.5px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Profession Selector Cards on partner.html */
+  .profession-card {
+    padding: 1.35rem 0.85rem !important;
+    border-radius: 1.25rem !important;
+    min-height: 135px !important;
+  }
+
+  .profession-card .rounded-full {
+    width: 4.25rem !important; /* 68px */
+    height: 4.25rem !important;
+  }
+
+  .profession-card h4 {
+    font-size: 15.5px !important;
+    font-weight: 800 !important;
+  }
+
+  .profession-card span.text-\[9px\],
+  .profession-card span.text-\[11px\] {
+    font-size: 13px !important;
+  }
+
+  .prof-radio {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+  }
+
+  /* Submit Buttons on Tablet */
+  form[data-partybala-form] button[type="submit"],
+  #partner-submit-btn {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    min-height: 58px !important;
+    padding: 1.1rem 2.5rem !important;
+    border-radius: 9999px !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Instant Booking Assistance Strip */
+  #booking-form .mb-6.p-3 {
+    padding: 1.25rem !important;
+  }
+
+  #booking-form .mb-6.p-3 .text-xs {
+    font-size: 14.5px !important;
+  }
+
+  #booking-form .mb-6.p-3 .text-\[11px\] {
+    font-size: 13.5px !important;
+  }
 }
 
 /* ========================================================================= */

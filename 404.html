@@ -151,6 +151,60 @@
     </div>
   </footer>
 
+  <!-- ========================================================================= -->
+  <!-- FIXED LUXURY MOBILE BOTTOM APP-BAR (Mobile Phones < 768px Only)          -->
+  <!-- ========================================================================= -->
+  <nav class="mobile-bottom-nav md:hidden" aria-label="Mobile Bottom Navigation">
+    <div class="max-w-md mx-auto grid grid-cols-5 items-center text-center px-1">
+      
+      <!-- Tab 1: Home -->
+      <a href="index.html" class="flex flex-col items-center justify-center py-1 rounded-xl text-gray-500 hover:text-[#d91b5c] font-medium transition">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+        </svg>
+        <span class="text-[10px] tracking-tight">Home</span>
+      </a>
+
+      <!-- Tab 2: Mehndi -->
+      <a href="book-mehndi.html" class="flex flex-col items-center justify-center py-1 rounded-xl text-gray-500 hover:text-[#044e3a] font-medium transition">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+        </svg>
+        <span class="text-[10px] tracking-tight">Mehndi</span>
+      </a>
+
+      <!-- Tab 3: Makeup -->
+      <a href="book-makeup.html" class="flex flex-col items-center justify-center py-1 rounded-xl text-gray-500 hover:text-[#d91b5c] font-medium transition">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+        </svg>
+        <span class="text-[10px] tracking-tight">Makeup</span>
+      </a>
+
+      <!-- Tab 4: Partner -->
+      <a href="partner.html" class="flex flex-col items-center justify-center py-1 rounded-xl text-gray-500 hover:text-amber-800 font-medium transition">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        <span class="text-[10px] tracking-tight">Partner</span>
+      </a>
+
+      <!-- Tab 5: Connect Us Concierge -->
+      <button type="button" 
+              onclick="window.openPartyBalaConnectModal('all')"
+              class="flex flex-col items-center justify-center py-1 rounded-xl text-[#d91b5c] font-bold transition hover:scale-105 cursor-pointer">
+        <div class="relative">
+          <svg class="w-5 h-5 mb-0.5 text-[#d91b5c]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <span class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        </div>
+        <span class="text-[10px] tracking-tight font-extrabold text-[#d91b5c]">Connect</span>
+      </button>
+
+    </div>
+  </nav>
+
   <!-- Configuration, Call Widget & Security Suite -->
   <script src="assets/js/config.js"></script>
   <script src="assets/js/call-widget.js"></script>

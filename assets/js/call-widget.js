@@ -150,8 +150,8 @@
 
     const modalHtml = `
       <div id="partybala-connect-modal" 
-           class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto"
-           style="overscroll-behavior: contain;">
+           class="fixed inset-0 z-[100000] flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto"
+           style="overscroll-behavior: contain; z-index: 100000 !important;">
         
         <!-- Luxury Modern Light Card Dialog -->
         <div class="bg-gradient-to-b from-[#FFFDFB] via-[#FAF7F2] to-[#F5EFE6] rounded-2xl sm:rounded-3xl w-full max-w-[460px] shadow-2xl border border-[#d4af37]/50 relative overflow-hidden max-h-[92vh] flex flex-col my-auto mx-auto min-w-0"
